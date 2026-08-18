@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "created_utc": "2026-08-06T07:26:14.184817+00:00",
+  "seed": 42,
+  "hybrid_evaluation": "<REPOSITORY_ROOT>/talon_outputs_jupyter/hybrid_talon_benchmark/outputs/runs/HYBRID_TALON/seed_42/evaluation",
+  "locked_unet_evaluation": "<REPOSITORY_ROOT>/talon_outputs_jupyter/outputs/runs/UNET_MTL_MASK_GUIDED/seed_42/evaluation",
+  "paired_cases": 21,
+  "paired_slices": 277,
+  "summary": "<REPOSITORY_ROOT>/talon_outputs_jupyter/hybrid_talon_benchmark/outputs/benchmark_comparison/hybrid_vs_unet_summary.csv",
+  "paired_statistics": "<REPOSITORY_ROOT>/talon_outputs_jupyter/hybrid_talon_benchmark/outputs/benchmark_comparison/paired_statistical_comparisons.csv",
+  "unet_retrained": false
+}

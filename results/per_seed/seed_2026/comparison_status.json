@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "created_utc": "2026-08-08T00:33:52.018359+00:00",
+  "seed": 2026,
+  "hybrid_evaluation": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_2026/evaluation",
+  "locked_unet_evaluation": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/UNET_MTL_MASK_GUIDED/seed_2026/evaluation",
+  "paired_cases": 21,
+  "paired_slices": 235,
+  "summary": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/benchmark_comparison/hybrid_vs_unet_summary.csv",
+  "paired_statistics": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/benchmark_comparison/paired_statistical_comparisons.csv",
+  "unet_retrained": false
+}

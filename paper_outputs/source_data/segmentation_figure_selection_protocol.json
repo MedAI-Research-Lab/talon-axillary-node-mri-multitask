@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "test_only": true,
+  "seed_set": [
+    42,
+    123,
+    2026,
+    31415,
+    27182
+  ],
+  "eligible_test_rows": 1304,
+  "off_target_top_quartile_cutoff": 5.0,
+  "selection_rules": {
+    "strong_match_IBC": "IBC and both model Dice >= 0.65; select median mean Dice",
+    "strong_match_IGM": "IGM and both model Dice >= 0.65; select median mean Dice",
+    "partial_match_IBC": "IBC, both models overlap GT, mean Dice 0.25-0.55; select median mean Dice",
+    "partial_match_IGM": "IGM, both models overlap GT, mean Dice 0.25-0.55; select median mean Dice",
+    "off_target_FP": "IGM, GT-positive slice, and combined off-target count above the global test-slice 75th percentile; select median off-target count",
+    "missed_undersegmented": "IGM, GT area >=25 pixels, and at least one model has a missed GT component; select median GT area"
+  },
+  "selection_policy": "Predefined strata, median selection, unique CaseID across categories; no patient names displayed.",
+  "selected": [
+    {
+      "public_tag": "Case A",
+      "seed": 42,
+      "CaseID": "patient035_case01",
+      "ImageName": "IBC_patient028_0115.jpg",
+      "ClassName": "IBC",
+      "selection_category": "strong_match_IBC",
+      "selection_rule": "Closest candidate to the stratum median mean_dice (0.819448); stable seed/CaseID/ImageName tie-break",
+      "eligible_count": 269,
+      "destination": "main_figure_3"
+    },
+    {
+      "public_tag": "Case B",
+      "seed": 31415,
+      "CaseID": "patient083_case01",
+      "ImageName": "IGM_patient052_0060.jpg",
+      "ClassName": "IGM",
+      "selection_category": "strong_match_IGM",
+      "selection_rule": "Closest candidate to the stratum median mean_dice (0.782903); stable seed/CaseID/ImageName tie-break",
+      "eligible_count": 103,
+      "destination": "supplementary_figure_S9"
+    },
+    {
+      "public_tag": "Case C",
+      "seed": 27182,
+      "CaseID": "patient046_case01",
+      "ImageName": "IBC_patient034_0232.jpg",
+      "ClassName": "IBC",
+      "selection_category": "partial_match_IBC",
+      "selection_rule": "Closest candidate to the stratum median mean_dice (0.430331); stable seed/CaseID/ImageName tie-break",
+      "eligible_count": 160,
+      "destination": "main_figure_3"
+    },
+    {
+      "public_tag": "Case D",
+      "seed": 31415,
+      "CaseID": "patient074_case01",
+      "ImageName": "IGM_patient048_0040.jpg",
+      "ClassName": "IGM",
+      "selection_category": "partial_match_IGM",
+      "selection_rule": "Closest candidate to the stratum median mean_dice (0.440451); stable seed/CaseID/ImageName tie-break",
+      "eligible_count": 85,
+      "destination": "supplementary_figure_S9"
+    },
+    {
+      "public_tag": "Case E",
+      "seed": 42,
+      "CaseID": "patient008_case01",
+      "ImageName": "IGM_patient013_0080.jpg",
+      "ClassName": "IGM",
+      "selection_category": "off_target_FP",
+      "selection_rule": "Closest candidate to the stratum median offtarget_total (7); stable seed/CaseID/ImageName tie-break",
+      "eligible_count": 106,
+      "destination": "main_figure_3"
+    },
+    {
+      "public_tag": "Case F",
+      "seed": 42,
+      "CaseID": "patient017_case01",
+      "ImageName": "IGM_patient017_0057.jpg",
+      "ClassName": "IGM",
+      "selection_category": "missed_undersegmented",
+      "selection_rule": "Closest candidate to the stratum median gt_area (132); stable seed/CaseID/ImageName tie-break",
+      "eligible_count": 162,
+      "destination": "main_figure_3"
+    }
+  ]
+}

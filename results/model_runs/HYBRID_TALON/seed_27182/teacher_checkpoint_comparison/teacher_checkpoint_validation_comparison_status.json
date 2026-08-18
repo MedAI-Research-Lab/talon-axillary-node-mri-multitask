@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "created_utc": "2026-08-12T10:19:14.848631+00:00",
+  "elapsed_seconds": 2026.0374054908752,
+  "model": "HYBRID_TALON",
+  "seed": 27182,
+  "training_performed": false,
+  "optimizer_created": false,
+  "backward_called": false,
+  "weight_updates": false,
+  "evaluation_split": "validation",
+  "locked_test_accessed": false,
+  "checkpoints": 5,
+  "outputs": {
+    "csv": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_27182/teacher_checkpoint_comparison/teacher_checkpoint_validation_comparison.csv",
+    "workbook": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_27182/teacher_checkpoint_comparison/teacher_checkpoint_validation_comparison.xlsx"
+  },
+  "output_sha256": {
+    "csv": "5870160fd9fa02f5c5feb2f361ba948a9d96f8b9549ecaf925753d76d0ff5dc1",
+    "workbook": "17f8fd8b0a5cb4f1c17f090217e391142ca04cde32921da25283b35977bb4c35"
+  }
+}

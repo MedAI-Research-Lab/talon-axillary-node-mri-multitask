@@ -1,0 +1,7 @@
+model,minimum_area_px,test_case_evaluations,gt_roi_components,matched_prediction_components,poorly_matched_prediction_components,off_target_fp_components,missed_gt_components,fragmented_gt_components
+TALON,1,106,1310,1083,95,2417,264,35
+TALON,10,106,1310,1075,30,1590,271,34
+TALON,25,106,1310,1043,14,1066,296,27
+U-Net,1,106,1310,939,44,2225,385,13
+U-Net,10,106,1310,937,20,1956,386,12
+U-Net,25,106,1310,920,9,1630,402,12

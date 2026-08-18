@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "created_utc": "2026-08-06T15:25:25.187706+00:00",
+  "files": 16315,
+  "identical_files": 16315,
+  "models": {
+    "HYBRID_TALON": {
+      "count": 8163,
+      "sum": 8163
+    },
+    "UNET_MTL_MASK_GUIDED": {
+      "count": 8152,
+      "sum": 8152
+    }
+  },
+  "manifest": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/reproducibility/seed_42_copy_integrity_manifest.csv"
+}

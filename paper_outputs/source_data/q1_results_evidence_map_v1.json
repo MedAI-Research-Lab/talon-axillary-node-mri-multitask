@@ -1,0 +1,142 @@
+{
+  "status": "PASS",
+  "claims": {
+    "evaluation_opening": [
+      "table_01_split_distribution.csv",
+      "table_02_training_early_stopping.csv"
+    ],
+    "classification_and_calibration": [
+      "all_seed_model_metrics.csv",
+      "five_seed_mean_sd_range.csv",
+      "table_07_case_confusion_matrices.csv",
+      "table_08_calibration.csv",
+      "all_seed_paired_results.csv"
+    ],
+    "segmentation": [
+      "five_seed_mean_sd_range.csv",
+      "table_09_component_categories.csv",
+      "table_10_relative_overlap.csv",
+      "table_12_subgroups.csv",
+      "all_seed_paired_results.csv"
+    ],
+    "teacher_and_xai": [
+      "table_13_teacher_checkpoint.csv",
+      "table_14_xai_gradcam.csv"
+    ],
+    "qualitative_figure": [
+      "segmentation_figure_all_eligible_candidates.csv",
+      "segmentation_figure_selection_protocol.json",
+      "test prediction NPZ files and source-image SHA-256 fields"
+    ]
+  },
+  "sources": [
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/aggregate_metrics/all_seed_model_metrics.csv",
+      "sha256": "e4f86525bd1a208a8fe54a92a96556fc01563bffe7ca51d16520016d43827ae5",
+      "size": 3941
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/aggregate_metrics/five_seed_mean_sd_range.csv",
+      "sha256": "faf787293238f8be83b95d3d775f5a63960d07cbbde63e37d69cb2ca8c7d027d",
+      "size": 3483
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/paired_comparisons/all_seed_paired_results.csv",
+      "sha256": "21e0609c568eb59fd28e2c00ffc287a3c56f3f225a598408f55fdf0b04f9b95f",
+      "size": 7828
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/paired_comparisons/five_seed_paired_effect_summary.csv",
+      "sha256": "130ea125c1b40c0563bf902f326ac468db5d123cf1405388149bc6be01567341",
+      "size": 1341
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_02_training_early_stopping.csv",
+      "sha256": "bf3a6c1dcb07269e654748e00702d7cfff9596e54b68d6f1ba5a387af7e60cc5",
+      "size": 853
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_03_talon_per_seed.csv",
+      "sha256": "faa43e2e8158db2f5c853411c5785423c589b151ba8f8175da423a973777d7d3",
+      "size": 1954
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_04_unet_per_seed.csv",
+      "sha256": "0a935d57283870338a8fa0ddc4da101337b4939008f90ca8304beb9b9037233b",
+      "size": 2181
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_05_aggregate_classification.csv",
+      "sha256": "48fa12541396bab96c278bb788fe8c6703b3b984d9ed07dbfe1e0630d46fd2fa",
+      "size": 1853
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_06_aggregate_segmentation.csv",
+      "sha256": "5a58602b7598e316c05ca39a6d6ceffd6a392132698fe611a25e46268fa87707",
+      "size": 978
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_07_case_confusion_matrices.csv",
+      "sha256": "3ff4df68a83b133ba9c501daf7adefbe59900220d3b26c90cedf8f402940e429",
+      "size": 820
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_08_calibration.csv",
+      "sha256": "a4d1df1a8058578ff8b7293b40a659dd332db39d1f8c628d652daad91e9ec1bc",
+      "size": 5022
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_09_component_categories.csv",
+      "sha256": "44d56454a99179ba8a15d0ffd7ee7b28d8fc00ab6aeb0b4a2a6418a4f02d23d7",
+      "size": 3341
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_10_relative_overlap.csv",
+      "sha256": "efaa689993bb7576c459f472ac2d79b9051cf658a7485d849687890c0b1dc3e0",
+      "size": 1472
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_11_case_errors.csv",
+      "sha256": "71df1d59f7ae1da5fd091bf8e3662ceab8c534a987bd3bea2fc8387f394de8f3",
+      "size": 9745
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_12_subgroups.csv",
+      "sha256": "d50a8922760ca4a6284a498a4d63c55bedbf2361b56fc9f526aef286337fd98f",
+      "size": 2790
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_13_teacher_checkpoint.csv",
+      "sha256": "4a5471884ced7a39a453e5e97a38987eab5b444aa79ef31f7ab175b84d408133",
+      "size": 867
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_14_xai_gradcam.csv",
+      "sha256": "4e23668d4c0909e6e946d8f69f3bf16f12680e33cb9e382022f9920be343024b",
+      "size": 1323
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/tez_results_tr/source_data/table_15_paired_comparison.csv",
+      "sha256": "83acdea145c88494bb295ae28f626297120cc9d95bd8870bcdf6a6179da2d485",
+      "size": 1318
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/data/segmentation_figure_all_eligible_candidates.csv",
+      "sha256": "5808cafef73b54d25fd7e578b6d8e4047e0cded1b629bc3553bb84b1be54bae0",
+      "size": 1353604
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/data/segmentation_figure_final_selection.csv",
+      "sha256": "7bd0a044043da584b2582f1b845eed1b373554c87dcaefec552569a26476822f",
+      "size": 7708
+    },
+    {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/data/segmentation_figure_selection_protocol.json",
+      "sha256": "15733ae56469dc38946f53c65d40da443be1d742a741531ba7be7de7c8daa449",
+      "size": 3594
+    }
+  ],
+  "no_seed_level_subject_pooling": true,
+  "model_name_in_manuscript": "TALON",
+  "repeated_holdout_is_external_validation": false
+}

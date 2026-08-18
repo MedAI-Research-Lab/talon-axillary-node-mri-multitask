@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "checks": {
+    "results_heading2_exact": true,
+    "main_table_count_2": true,
+    "main_figure_count_3": true,
+    "supp_table_count_11": true,
+    "supp_figure_count_9": true,
+    "no_hybrid_talon_visible": true,
+    "not_external_validation": true,
+    "five_seeds_methods": true,
+    "supp_figure_captions_complete": true,
+    "supp_table_captions_complete": true,
+    "main_crossrefs_resolve": true,
+    "no_patient_tags_visible": true,
+    "selection_manifest_1304": true,
+    "main_four_distinct_cases": true,
+    "main_balanced_classes": true,
+    "all_pass": true
+  },
+  "results_word_count": 1116,
+  "results_heading2": [
+    "Classification and calibration performance",
+    "Segmentation and lesion-localization performance"
+  ],
+  "counts": {
+    "main_tables": 2,
+    "main_figures": 3,
+    "supp_tables": 11,
+    "supp_figures": 9
+  },
+  "main_captions": {
+    "figures": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure S3",
+      "Figure S4",
+      "Figure S5",
+      "Figure S6",
+      "Figure S7",
+      "Figure S8",
+      "Figure S9"
+    ],
+    "tables": [
+      "Table 1",
+      "Table 2",
+      "Table S10",
+      "Table S11",
+      "Table S4",
+      "Table S5",
+      "Table S8",
+      "Table S9"
+    ]
+  },
+  "supplement_captions": {
+    "figures": [
+      "Supplementary Figure S1",
+      "Supplementary Figure S2",
+      "Supplementary Figure S3",
+      "Supplementary Figure S4",
+      "Supplementary Figure S5",
+      "Supplementary Figure S6",
+      "Supplementary Figure S7",
+      "Supplementary Figure S8",
+      "Supplementary Figure S9"
+    ],
+    "tables": [
+      "Supplementary Table S1",
+      "Supplementary Table S10",
+      "Supplementary Table S11",
+      "Supplementary Table S2",
+      "Supplementary Table S3",
+      "Supplementary Table S4",
+      "Supplementary Table S5",
+      "Supplementary Table S6",
+      "Supplementary Table S7",
+      "Supplementary Table S8",
+      "Supplementary Table S9"
+    ]
+  },
+  "main_results_crossrefs": {
+    "figures": [
+      "Supplementary Figure S3",
+      "Supplementary Figure S4",
+      "Supplementary Figure S5",
+      "Supplementary Figure S6",
+      "Supplementary Figure S7",
+      "Supplementary Figure S8",
+      "Supplementary Figure S9"
+    ],
+    "tables": [
+      "Supplementary Table S10",
+      "Supplementary Table S11",
+      "Supplementary Table S4",
+      "Supplementary Table S5",
+      "Supplementary Table S8",
+      "Supplementary Table S9"
+    ]
+  },
+  "selected_main_cases": [
+    {
+      "case_tag": "Case E",
+      "seed": 42,
+      "class": "IGM",
+      "pattern": "off_target_FP"
+    },
+    {
+      "case_tag": "Case F",
+      "seed": 42,
+      "class": "IGM",
+      "pattern": "missed_undersegmented"
+    },
+    {
+      "case_tag": "Case A",
+      "seed": 42,
+      "class": "IBC",
+      "pattern": "strong_match_IBC"
+    },
+    {
+      "case_tag": "Case C",
+      "seed": 27182,
+      "class": "IBC",
+      "pattern": "partial_match_IBC"
+    }
+  ],
+  "style": {
+    "main": {
+      "runs": 132,
+      "non_arial": 0,
+      "non_12pt": 0,
+      "non_black": 0
+    },
+    "supplement": {
+      "runs": 1105,
+      "non_arial": 0,
+      "non_12pt": 0,
+      "non_black": 0
+    }
+  },
+  "sha256": {
+    "main": "45ceb9a03ea1397d5fa1a1a27cd63d3fc944ffe835b7a0412044e7c0ecb6d3dd",
+    "supplement": "8460040d7cce2a9f6f6cd44eb67fc81fe0e2b0b3ed0e8d55a43d998be8a68ae7",
+    "evidence_map": "01fc279be4286a2b98732077ccadd7cbb34eb58fa22ed83f129efb50b7cd846e",
+    "asset_manifest": "2dbbdda7f1a19bd25b82776914e6c7661431b38316d3a9eb7d5e4ce7517c8550"
+  },
+  "evidence_map": "PASS",
+  "a11y": {
+    "main": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "supplement": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    }
+  },
+  "render_qa": {
+    "status": "PASS",
+    "main_pages": 14,
+    "supplement_pages": 27,
+    "main_render_dir": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/qa_main_v2",
+    "supplement_render_dir": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/qa_supplement_v4",
+    "note": "All pages visually inspected. Final DOCX rebuild changed only OOXML accessibility metadata (alt text and repeat-header flags) in Supplementary S1/S2 and its first two tables; the visually identical final render was retained."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "benchmark_name": "HYBRID_TALON_VS_UNET_MTL_MASK_GUIDED_REPEATED_HOLDOUT",
+  "seeds": [
+    42,
+    123,
+    2026,
+    27182,
+    31415
+  ],
+  "new_training_seeds": [
+    123,
+    2026,
+    27182,
+    31415
+  ],
+  "models": [
+    "TALON",
+    "Mask-guided Multi-task U-Net"
+  ],
+  "canonical_seed_42_config": "configs/publication_config.frozen.json",
+  "canonical_hybrid_model": "src/talon_publication/hybrid_talon.py",
+  "split_unit": "SubjectID",
+  "reporting_unit": "CaseID",
+  "same_split_for_both_models": true,
+  "seed_42_retraining_forbidden": true,
+  "seed_and_split_seed_must_match": true,
+  "validation_only_teacher_comparison": true,
+  "locked_test_used_once_per_model_seed": true,
+  "aggregate_rule": "report each seed separately and summarize seed-level metrics; do not treat repeated appearances as independent cases",
+  "internal_run_ids": {
+    "TALON": "HYBRID_TALON",
+    "Mask-guided Multi-task U-Net": "UNET_MTL_MASK_GUIDED"
+  }
+}

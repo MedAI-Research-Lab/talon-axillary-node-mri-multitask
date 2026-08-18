@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "scope": "Five repeated-holdout locked-test evaluations; counts are case-evaluations, not unique patients across seeds.",
+  "seeds": [
+    42,
+    123,
+    2026,
+    31415,
+    27182
+  ],
+  "models": [
+    "TALON",
+    "U-Net"
+  ],
+  "minimum_component_area_px": [
+    1,
+    10,
+    25
+  ],
+  "rows": {
+    "case_list": 106,
+    "aggregate_summary": 6,
+    "off_target_fp_roi_detail": 10884,
+    "gt_segmentation_unique_occurrences": 1310,
+    "gt_segmentation_model_threshold_status": 7860,
+    "source_manifest": 50
+  },
+  "checks": {
+    "case_evaluations_equal_106": true,
+    "unique_gt_occurrences_equal_1310": true,
+    "fp_detail_reconciles_to_case_counts": true,
+    "published_aggregate_totals_reconciled": true,
+    "gt_count_invariant_across_models_and_thresholds_per_case": true
+  },
+  "provenance_warning": "Seed-27182 U-Net recovery status and resolved_config disagree on the legacy poorly-matched threshold (0.05 vs 0.10). Source counts are preserved as produced. Relative-overlap 25/50/75 analyses are independent of this warning.",
+  "files": {
+    "case_list": {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/component_lists/fp_roi_gt_segmentation_case_list_5seed.csv",
+      "sha256": "2de18edbe09a960c469b2f8496919cac213679922f52e4c37c0cb38aa273dfd5",
+      "bytes": 14120
+    },
+    "summary": {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/component_lists/fp_roi_gt_segmentation_aggregate_summary.csv",
+      "sha256": "767cd89ad50e1c2700722b094f0663914d1494fdac4cc60b1a789fc3d7d44268",
+      "bytes": 432
+    },
+    "fp_detail": {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/component_lists/off_target_fp_roi_component_detail_5seed.csv",
+      "sha256": "50ef012e15d2d9afcdeee6eddd19d6c17fc031c7b8072818c6f1bbea612fbab7",
+      "bytes": 1511170
+    },
+    "gt_unique": {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/component_lists/gt_segmentation_component_list_5seed.csv",
+      "sha256": "bacb4221da5b58161a5255b335bfb5f5d29593c46cfc840d94dcc45493f45205",
+      "bytes": 163407
+    },
+    "gt_status": {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/component_lists/gt_segmentation_model_status_5seed.csv",
+      "sha256": "eb35f2aa1373f4d5c4ac32b7f8cf672dae48357ac0e365323673d742cffb509b",
+      "bytes": 1155981
+    },
+    "sources": {
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/component_lists/component_list_source_manifest.csv",
+      "sha256": "24877b9587629dac269be9bad316125f0680615b0df2eeee04640ef6bfecc330",
+      "bytes": 12828
+    }
+  }
+}

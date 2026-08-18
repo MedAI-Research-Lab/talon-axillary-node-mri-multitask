@@ -1,0 +1,482 @@
+{
+  "seeds": [
+    42,
+    123,
+    2026,
+    31415,
+    27182
+  ],
+  "test_slice_evaluations": 1304,
+  "test_case_evaluations": 106,
+  "models": {
+    "TALON": {
+      "calibrated": {
+        "auroc_mean": 0.905,
+        "auroc_std": 0.0467000909108716,
+        "auroc_min": 0.8583333333333334,
+        "auroc_max": 0.9814814814814814,
+        "auprc_mean": 0.8922640598326874,
+        "auprc_std": 0.0566007509608135,
+        "auprc_min": 0.8241943241943244,
+        "auprc_max": 0.9765432098765434,
+        "accuracy_mean": 0.783982683982684,
+        "accuracy_std": 0.1160423504682266,
+        "accuracy_min": 0.6818181818181818,
+        "accuracy_max": 0.9523809523809524,
+        "balanced_accuracy_mean": 0.7794444444444444,
+        "balanced_accuracy_std": 0.1200180027648115,
+        "balanced_accuracy_min": 0.675,
+        "balanced_accuracy_max": 0.9583333333333331,
+        "brier_mean": 0.125867141866544,
+        "brier_std": 0.0318587148607129,
+        "brier_min": 0.0753568164717415,
+        "brier_max": 0.1537408222384929,
+        "mean_dice_mean": 0.5298350966003382,
+        "mean_dice_std": 0.0568182921472991,
+        "mean_dice_min": 0.4601793375554327,
+        "mean_dice_max": 0.6157987134052976,
+        "mean_iou_mean": 0.4225890806312884,
+        "mean_iou_std": 0.0499965153802932,
+        "mean_iou_min": 0.3762918177203138,
+        "mean_iou_max": 0.5059257363208067,
+        "mean_off_target_components_per_case_mean": 22.83809523809524,
+        "mean_off_target_components_per_case_std": 8.541455530823423,
+        "mean_off_target_components_per_case_min": 16.238095238095237,
+        "mean_off_target_components_per_case_max": 36.142857142857146,
+        "classification_threshold_mean": 0.5,
+        "classification_threshold_std": 0.0,
+        "classification_threshold_min": 0.5,
+        "classification_threshold_max": 0.5,
+        "segmentation_threshold_mean": 0.13,
+        "segmentation_threshold_std": 0.0447213595499958,
+        "segmentation_threshold_min": 0.1,
+        "segmentation_threshold_max": 0.2
+      },
+      "raw": {
+        "auroc_mean": 0.905,
+        "auroc_std": 0.0467000909108716,
+        "auroc_min": 0.8583333333333334,
+        "auroc_max": 0.9814814814814814,
+        "auprc_mean": 0.8922640598326874,
+        "auprc_std": 0.0566007509608135,
+        "auprc_min": 0.8241943241943244,
+        "auprc_max": 0.9765432098765434,
+        "accuracy_mean": 0.7653679653679654,
+        "accuracy_std": 0.0750055437941594,
+        "accuracy_min": 0.6363636363636364,
+        "accuracy_max": 0.8095238095238095,
+        "balanced_accuracy_mean": 0.7788888888888889,
+        "balanced_accuracy_std": 0.0724781789213352,
+        "balanced_accuracy_min": 0.6583333333333333,
+        "balanced_accuracy_max": 0.8333333333333333,
+        "brier_mean": 0.1480613103018228,
+        "brier_std": 0.0268917029285069,
+        "brier_min": 0.1268500274967799,
+        "brier_max": 0.19416288232646,
+        "mean_dice_mean": 0.5298350966003382,
+        "mean_dice_std": 0.0568182921472991,
+        "mean_dice_min": 0.4601793375554327,
+        "mean_dice_max": 0.6157987134052976,
+        "mean_iou_mean": 0.4225890806312884,
+        "mean_iou_std": 0.0499965153802932,
+        "mean_iou_min": 0.3762918177203138,
+        "mean_iou_max": 0.5059257363208067,
+        "mean_off_target_components_per_case_mean": 22.83809523809524,
+        "mean_off_target_components_per_case_std": 8.541455530823423,
+        "mean_off_target_components_per_case_min": 16.238095238095237,
+        "mean_off_target_components_per_case_max": 36.142857142857146,
+        "classification_threshold_mean": 0.5,
+        "classification_threshold_std": 0.0,
+        "classification_threshold_min": 0.5,
+        "classification_threshold_max": 0.5,
+        "segmentation_threshold_mean": 0.13,
+        "segmentation_threshold_std": 0.0447213595499958,
+        "segmentation_threshold_min": 0.1,
+        "segmentation_threshold_max": 0.2
+      },
+      "sensitivity_mean": 0.7422222222222221,
+      "sensitivity_sd": 0.15760553979108574,
+      "specificity_mean": 0.8166666666666667,
+      "specificity_sd": 0.09128709291752765,
+      "ece_calibrated_mean": 0.18196934556854719,
+      "ece_calibrated_sd": 0.03345340095636521,
+      "matched_per_case_area1_mean": 10.236363636363635,
+      "poorly_matched_per_case_area1_mean": 0.8965367965367965,
+      "off_target_per_case_area1_mean": 22.838095238095242,
+      "off_target_per_case_area1_sd": 8.541455530823423,
+      "off_target_per_case_area25_mean": 10.063636363636364,
+      "off_target_per_case_area25_sd": 1.4570730203727444,
+      "missed_gt_fraction_area1_mean": 0.20340527232471256,
+      "missed_gt_fraction_area1_sd": 0.08456170329203606,
+      "no_overlap_fraction_area1_mean": 0.18149651977821005,
+      "strong_75_fraction_area1_mean": 0.4351270868146546
+    },
+    "Mask-guided Multi-task U-Net": {
+      "calibrated": {
+        "auroc_mean": 0.837962962962963,
+        "auroc_std": 0.1133077615788927,
+        "auroc_min": 0.6666666666666666,
+        "auroc_max": 0.9814814814814814,
+        "auprc_mean": 0.7945295768138907,
+        "auprc_std": 0.1538363109910087,
+        "auprc_min": 0.5608465608465609,
+        "auprc_max": 0.9765432098765434,
+        "accuracy_mean": 0.7359307359307359,
+        "accuracy_std": 0.0791154410497708,
+        "accuracy_min": 0.6666666666666666,
+        "accuracy_max": 0.8571428571428571,
+        "balanced_accuracy_mean": 0.7277777777777777,
+        "balanced_accuracy_std": 0.0924420071794096,
+        "balanced_accuracy_min": 0.6388888888888888,
+        "balanced_accuracy_max": 0.875,
+        "brier_mean": 0.1752436475566846,
+        "brier_std": 0.0520398738443974,
+        "brier_min": 0.0957520733847789,
+        "brier_max": 0.2300028432891539,
+        "mean_dice_mean": 0.4243399304603263,
+        "mean_dice_std": 0.0848829632097736,
+        "mean_dice_min": 0.2889867917377267,
+        "mean_dice_max": 0.5095497734818286,
+        "mean_iou_mean": 0.3273232460438901,
+        "mean_iou_std": 0.0702989127649739,
+        "mean_iou_min": 0.218628510906434,
+        "mean_iou_max": 0.3932886379931491,
+        "mean_off_target_components_per_case_mean": 21.016017316017315,
+        "mean_off_target_components_per_case_std": 3.0271983167600007,
+        "mean_off_target_components_per_case_min": 18.318181818181817,
+        "mean_off_target_components_per_case_max": 24.428571428571427,
+        "classification_threshold_mean": 0.5,
+        "classification_threshold_std": 0.0,
+        "classification_threshold_min": 0.5,
+        "classification_threshold_max": 0.5,
+        "segmentation_threshold_mean": 0.8,
+        "segmentation_threshold_std": 0.1541103500742243,
+        "segmentation_threshold_min": 0.55,
+        "segmentation_threshold_max": 0.9
+      },
+      "raw": {
+        "auroc_mean": 0.837962962962963,
+        "auroc_std": 0.1133077615788927,
+        "auroc_min": 0.6666666666666666,
+        "auroc_max": 0.9814814814814814,
+        "auprc_mean": 0.7945295768138907,
+        "auprc_std": 0.1538363109910087,
+        "auprc_min": 0.5608465608465609,
+        "auprc_max": 0.9765432098765434,
+        "accuracy_mean": 0.7367965367965368,
+        "accuracy_std": 0.0654667983675625,
+        "accuracy_min": 0.6363636363636364,
+        "accuracy_max": 0.8095238095238095,
+        "balanced_accuracy_mean": 0.7511111111111111,
+        "balanced_accuracy_std": 0.0682282389673996,
+        "balanced_accuracy_min": 0.6583333333333333,
+        "balanced_accuracy_max": 0.8333333333333333,
+        "brier_mean": 0.1965165897573294,
+        "brier_std": 0.0187733477120395,
+        "brier_min": 0.1775767965315266,
+        "brier_max": 0.2194302446535977,
+        "mean_dice_mean": 0.4243399304603263,
+        "mean_dice_std": 0.0848829632097736,
+        "mean_dice_min": 0.2889867917377267,
+        "mean_dice_max": 0.5095497734818286,
+        "mean_iou_mean": 0.3273232460438901,
+        "mean_iou_std": 0.0702989127649739,
+        "mean_iou_min": 0.218628510906434,
+        "mean_iou_max": 0.3932886379931491,
+        "mean_off_target_components_per_case_mean": 21.016017316017315,
+        "mean_off_target_components_per_case_std": 3.0271983167600007,
+        "mean_off_target_components_per_case_min": 18.318181818181817,
+        "mean_off_target_components_per_case_max": 24.428571428571427,
+        "classification_threshold_mean": 0.5,
+        "classification_threshold_std": 0.0,
+        "classification_threshold_min": 0.5,
+        "classification_threshold_max": 0.5,
+        "segmentation_threshold_mean": 0.8,
+        "segmentation_threshold_std": 0.1541103500742243,
+        "segmentation_threshold_min": 0.55,
+        "segmentation_threshold_max": 0.9
+      },
+      "sensitivity_mean": 0.6555555555555556,
+      "sensitivity_sd": 0.21659542988464364,
+      "specificity_mean": 0.8,
+      "specificity_sd": 0.0950146187582615,
+      "ece_calibrated_mean": 0.192519976639871,
+      "ece_calibrated_sd": 0.05015561767781645,
+      "matched_per_case_area1_mean": 8.860606060606061,
+      "poorly_matched_per_case_area1_mean": 0.41731601731601725,
+      "off_target_per_case_area1_mean": 21.016017316017315,
+      "off_target_per_case_area1_sd": 3.0271983167600007,
+      "off_target_per_case_area25_mean": 15.389177489177488,
+      "off_target_per_case_area25_sd": 2.371404705676729,
+      "missed_gt_fraction_area1_mean": 0.3019685489788365,
+      "missed_gt_fraction_area1_sd": 0.12297930341986583,
+      "no_overlap_fraction_area1_mean": 0.2832886940529303,
+      "strong_75_fraction_area1_mean": 0.3634629914144825
+    }
+  },
+  "paired_effects": {
+    "case_calibrated_accuracy": {
+      "mean": 0.048051948051948,
+      "std": 0.1005084430032329,
+      "min": -0.0476190476190475,
+      "max": 0.1904761904761904,
+      "method": "exact McNemar"
+    },
+    "case_calibrated_auprc": {
+      "mean": 0.0977344830187966,
+      "std": 0.14410998065096,
+      "min": -0.0081060606060606,
+      "max": 0.3447582736798422,
+      "method": "paired SubjectID-clustered bootstrap"
+    },
+    "case_calibrated_auroc": {
+      "mean": 0.067037037037037,
+      "std": 0.0987698687275118,
+      "min": -0.0166666666666666,
+      "max": 0.2314814814814814,
+      "method": "paired SubjectID-clustered bootstrap"
+    },
+    "case_calibrated_brier": {
+      "mean": -0.0493765056901405,
+      "std": 0.044639066657083,
+      "min": -0.1067086183112619,
+      "max": -0.0109161928386686,
+      "method": "paired SubjectID-clustered bootstrap"
+    },
+    "case_raw_accuracy": {
+      "mean": 0.0285714285714285,
+      "std": 0.0425917709999959,
+      "min": 0.0,
+      "max": 0.0952380952380952,
+      "method": "exact McNemar"
+    },
+    "case_raw_auprc": {
+      "mean": 0.0977344830187966,
+      "std": 0.14410998065096,
+      "min": -0.0081060606060606,
+      "max": 0.3447582736798422,
+      "method": "paired SubjectID-clustered bootstrap"
+    },
+    "case_raw_auroc": {
+      "mean": 0.067037037037037,
+      "std": 0.0987698687275118,
+      "min": -0.0166666666666666,
+      "max": 0.2314814814814814,
+      "method": "paired SubjectID-clustered bootstrap"
+    },
+    "case_raw_brier": {
+      "mean": -0.0484552794555066,
+      "std": 0.0223473167650741,
+      "min": -0.0807048790075085,
+      "max": -0.0189740559635935,
+      "method": "paired SubjectID-clustered bootstrap"
+    },
+    "slice_dice": {
+      "mean": 0.1054951661400117,
+      "std": 0.0932546340508148,
+      "min": -0.0151303101623599,
+      "max": 0.2386574721388574,
+      "method": "paired SubjectID-clustered bootstrap + Wilcoxon"
+    },
+    "slice_iou": {
+      "mean": 0.0952658345873983,
+      "std": 0.0755588869047631,
+      "min": -0.0040057973335507,
+      "max": 0.1963473448439127,
+      "method": "paired SubjectID-clustered bootstrap + Wilcoxon"
+    }
+  },
+  "teacher": [
+    {
+      "teacher": 1,
+      "mean_dice_mean": 0.4934509711333477,
+      "mean_dice_sd": 0.0470981340214412,
+      "auroc_mean": 0.8796296296296295,
+      "auroc_sd": 0.0848625128695526,
+      "accuracy_mean": 0.7904761904761904,
+      "accuracy_sd": 0.0796819072889595,
+      "off_target_fp_mean": 1177.2,
+      "xai_energy_inside_gt_mean": 0.0028950213053996
+    },
+    {
+      "teacher": 2,
+      "mean_dice_mean": 0.5103028224553529,
+      "mean_dice_sd": 0.042320083116309,
+      "auroc_mean": 0.8777777777777779,
+      "auroc_sd": 0.0537515750877777,
+      "accuracy_mean": 0.819047619047619,
+      "accuracy_sd": 0.0915970669603397,
+      "off_target_fp_mean": 1352.0,
+      "xai_energy_inside_gt_mean": 0.0024161226913294
+    },
+    {
+      "teacher": 3,
+      "mean_dice_mean": 0.4962345857632512,
+      "mean_dice_sd": 0.0436321261169183,
+      "auroc_mean": 0.837037037037037,
+      "auroc_sd": 0.0623196987794957,
+      "accuracy_mean": 0.7047619047619047,
+      "accuracy_sd": 0.0706304617818634,
+      "off_target_fp_mean": 952.0,
+      "xai_energy_inside_gt_mean": 0.0018741861373465
+    },
+    {
+      "teacher": 4,
+      "mean_dice_mean": 0.4626528738421901,
+      "mean_dice_sd": 0.0388840655550356,
+      "auroc_mean": 0.875925925925926,
+      "auroc_sd": 0.0716022775154859,
+      "accuracy_mean": 0.8095238095238095,
+      "accuracy_sd": 0.0824786098842322,
+      "off_target_fp_mean": 1151.0,
+      "xai_energy_inside_gt_mean": 0.0023444133265999
+    },
+    {
+      "teacher": 5,
+      "mean_dice_mean": 0.4675588082415577,
+      "mean_dice_sd": 0.0353264107786693,
+      "auroc_mean": 0.875925925925926,
+      "auroc_sd": 0.0736678677070967,
+      "accuracy_mean": 0.8285714285714285,
+      "accuracy_sd": 0.0987449588253701,
+      "off_target_fp_mean": 940.0,
+      "xai_energy_inside_gt_mean": 0.0023445162241173
+    }
+  ],
+  "xai": {
+    "Mask-guided Multi-task U-Net": {
+      "xai_iou": {
+        "mean": 0.0036423852171039,
+        "std": 0.0016971778508973283
+      },
+      "xai_lesion_recall": {
+        "mean": 0.403776630383923,
+        "std": 0.08263096075540405
+      },
+      "xai_pointing_game": {
+        "mean": 0.12057573495465804,
+        "std": 0.05110461447016701
+      },
+      "xai_energy_inside_gt": {
+        "mean": 0.00314335899241948,
+        "std": 0.0015370736476372723
+      },
+      "xai_off_target_attention": {
+        "mean": 0.9968566410075803,
+        "std": 0.0015370736476372927
+      }
+    },
+    "TALON": {
+      "xai_iou": {
+        "mean": 0.0022227958256883203,
+        "std": 0.0018507876980079637
+      },
+      "xai_lesion_recall": {
+        "mean": 0.22031264697317016,
+        "std": 0.07701961667300895
+      },
+      "xai_pointing_game": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "xai_energy_inside_gt": {
+        "mean": 0.0018930388037008,
+        "std": 0.001148828620484164
+      },
+      "xai_off_target_attention": {
+        "mean": 0.998106961196299,
+        "std": 0.0011488286204841595
+      }
+    }
+  },
+  "selection": {
+    "status": "PASS",
+    "test_only": true,
+    "seed_set": [
+      42,
+      123,
+      2026,
+      31415,
+      27182
+    ],
+    "eligible_test_rows": 1304,
+    "off_target_top_quartile_cutoff": 5.0,
+    "selection_rules": {
+      "strong_match_IBC": "IBC and both model Dice >= 0.65; select median mean Dice",
+      "strong_match_IGM": "IGM and both model Dice >= 0.65; select median mean Dice",
+      "partial_match_IBC": "IBC, both models overlap GT, mean Dice 0.25-0.55; select median mean Dice",
+      "partial_match_IGM": "IGM, both models overlap GT, mean Dice 0.25-0.55; select median mean Dice",
+      "off_target_FP": "IGM, GT-positive slice, and combined off-target count above the global test-slice 75th percentile; select median off-target count",
+      "missed_undersegmented": "IGM, GT area >=25 pixels, and at least one model has a missed GT component; select median GT area"
+    },
+    "selection_policy": "Predefined strata, median selection, unique CaseID across categories; no patient names displayed.",
+    "selected": [
+      {
+        "public_tag": "Case A",
+        "seed": 42,
+        "CaseID": "patient035_case01",
+        "ImageName": "IBC_patient028_0115.jpg",
+        "ClassName": "IBC",
+        "selection_category": "strong_match_IBC",
+        "selection_rule": "Closest candidate to the stratum median mean_dice (0.819448); stable seed/CaseID/ImageName tie-break",
+        "eligible_count": 269,
+        "destination": "main_figure_3"
+      },
+      {
+        "public_tag": "Case B",
+        "seed": 31415,
+        "CaseID": "patient083_case01",
+        "ImageName": "IGM_patient052_0060.jpg",
+        "ClassName": "IGM",
+        "selection_category": "strong_match_IGM",
+        "selection_rule": "Closest candidate to the stratum median mean_dice (0.782903); stable seed/CaseID/ImageName tie-break",
+        "eligible_count": 103,
+        "destination": "supplementary_figure_S9"
+      },
+      {
+        "public_tag": "Case C",
+        "seed": 27182,
+        "CaseID": "patient046_case01",
+        "ImageName": "IBC_patient034_0232.jpg",
+        "ClassName": "IBC",
+        "selection_category": "partial_match_IBC",
+        "selection_rule": "Closest candidate to the stratum median mean_dice (0.430331); stable seed/CaseID/ImageName tie-break",
+        "eligible_count": 160,
+        "destination": "main_figure_3"
+      },
+      {
+        "public_tag": "Case D",
+        "seed": 31415,
+        "CaseID": "patient074_case01",
+        "ImageName": "IGM_patient048_0040.jpg",
+        "ClassName": "IGM",
+        "selection_category": "partial_match_IGM",
+        "selection_rule": "Closest candidate to the stratum median mean_dice (0.440451); stable seed/CaseID/ImageName tie-break",
+        "eligible_count": 85,
+        "destination": "supplementary_figure_S9"
+      },
+      {
+        "public_tag": "Case E",
+        "seed": 42,
+        "CaseID": "patient008_case01",
+        "ImageName": "IGM_patient013_0080.jpg",
+        "ClassName": "IGM",
+        "selection_category": "off_target_FP",
+        "selection_rule": "Closest candidate to the stratum median offtarget_total (7); stable seed/CaseID/ImageName tie-break",
+        "eligible_count": 106,
+        "destination": "main_figure_3"
+      },
+      {
+        "public_tag": "Case F",
+        "seed": 42,
+        "CaseID": "patient017_case01",
+        "ImageName": "IGM_patient017_0057.jpg",
+        "ClassName": "IGM",
+        "selection_category": "missed_undersegmented",
+        "selection_rule": "Closest candidate to the stratum median gt_area (132); stable seed/CaseID/ImageName tie-break",
+        "eligible_count": 162,
+        "destination": "main_figure_3"
+      }
+    ]
+  }
+}

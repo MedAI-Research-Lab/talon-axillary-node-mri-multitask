@@ -1,0 +1,6 @@
+phase_index,phase,selection_key,max_epochs,patience,completed_epochs,best_epoch,best_phase_score,checkpoint
+1,teacher1_anatomy_normal,teacher1_stability,45,12,25,19,0.5150265821357608,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/phase_01_teacher1_anatomy_normal_best.pt
+2,teacher2_candidate_search,recall_safe,45,12,7,1,0.5490129804874188,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/phase_02_teacher2_candidate_search_best.pt
+3,teacher3_doctor_ball_objectness,doctor_ball,45,12,15,9,0.5596755237806016,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/phase_03_teacher3_doctor_ball_objectness_best.pt
+4,teacher4_seg_cls_coupling,dual_strong,45,16,9,1,0.5360697984669152,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/phase_04_teacher4_seg_cls_coupling_best.pt
+5,teacher5_report_ready_polish,final_polish,30,12,13,7,0.49782269904176457,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/phase_05_teacher5_report_ready_polish_best.pt

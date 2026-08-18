@@ -1,0 +1,6 @@
+phase_index,phase,selection_key,max_epochs,patience,completed_epochs,best_epoch,best_phase_score,checkpoint
+1,teacher1_anatomy_normal,teacher1_stability,45,12,26,20,0.526356127805953,<REPOSITORY_ROOT>/talon_outputs_jupyter/hybrid_talon_benchmark/outputs/runs/HYBRID_TALON/seed_42/checkpoints/phase_01_teacher1_anatomy_normal_best.pt
+2,teacher2_candidate_search,recall_safe,45,12,7,1,0.5842048643614061,<REPOSITORY_ROOT>/talon_outputs_jupyter/hybrid_talon_benchmark/outputs/runs/HYBRID_TALON/seed_42/checkpoints/phase_02_teacher2_candidate_search_best.pt
+3,teacher3_doctor_ball_objectness,doctor_ball,45,12,8,1,0.5433753155047779,<REPOSITORY_ROOT>/talon_outputs_jupyter/hybrid_talon_benchmark/outputs/runs/HYBRID_TALON/seed_42/checkpoints/phase_03_teacher3_doctor_ball_objectness_best.pt
+4,teacher4_seg_cls_coupling,dual_strong,45,16,10,1,0.6153012982752685,<REPOSITORY_ROOT>/talon_outputs_jupyter/hybrid_talon_benchmark/outputs/runs/HYBRID_TALON/seed_42/checkpoints/phase_04_teacher4_seg_cls_coupling_best.pt
+5,teacher5_report_ready_polish,final_polish,30,12,12,6,0.5421803883090811,<REPOSITORY_ROOT>/talon_outputs_jupyter/hybrid_talon_benchmark/outputs/runs/HYBRID_TALON/seed_42/checkpoints/phase_05_teacher5_report_ready_polish_best.pt

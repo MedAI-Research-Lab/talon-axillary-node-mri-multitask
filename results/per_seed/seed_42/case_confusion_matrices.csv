@@ -1,0 +1,5 @@
+model,calibration,tn,fp,fn,tp
+HYBRID_TALON,raw,9,3,1,8
+HYBRID_TALON,calibrated,9,3,3,6
+UNET_MTL_MASK_GUIDED,raw,8,4,1,8
+UNET_MTL_MASK_GUIDED,calibrated,10,2,3,6

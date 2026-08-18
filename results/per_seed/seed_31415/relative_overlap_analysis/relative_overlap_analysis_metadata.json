@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "training_performed": false,
+  "model_inference_performed": false,
+  "source": "frozen locked-test probability arrays",
+  "connectivity": 8,
+  "tier_variable": "min(gt_coverage, prediction_purity)",
+  "tiers": {
+    "partial_below_25": "overlap exists but q < 0.25",
+    "low_25_to_50": "0.25 <= q < 0.50",
+    "moderate_50_to_75": "0.50 <= q < 0.75",
+    "strong_75_plus": "q >= 0.75"
+  },
+  "minimum_area_sensitivity_px": [
+    1,
+    10,
+    25
+  ],
+  "note": "GT-level tiers use the union of every prediction component touching that GT, so fragmented predictions do not multiply the GT count.",
+  "seed": 31415,
+  "models": [
+    "HYBRID_TALON",
+    "UNET_MTL_MASK_GUIDED"
+  ],
+  "locked_analysis_source": "<REPOSITORY_ROOT>/talon_outputs_jupyter/hybrid_talon_benchmark/scripts/run_relative_overlap_tiers.py"
+}

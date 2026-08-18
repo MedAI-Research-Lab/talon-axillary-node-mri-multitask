@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "model": "TALON",
+  "internal_run_id": "HYBRID_TALON",
+  "expected_trainable_parameters": 4930849,
+  "observed_trainable_parameters": 4930849,
+  "all_required_audits_pass": true
+}

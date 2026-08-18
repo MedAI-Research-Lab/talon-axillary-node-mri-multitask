@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "seed": 123,
+  "split_seed": 123,
+  "split_unit": "SubjectID",
+  "reporting_unit": "CaseID",
+  "subject_leakage": false,
+  "case_leakage": false,
+  "cross_split_duplicate_rows": 0,
+  "same_split_used_by_both_models": true,
+  "changed_case_assignments_vs_seed_42": 52,
+  "counts": {
+    "IBC": {
+      "test": 12,
+      "train": 33,
+      "validation": 12
+    },
+    "IGM": {
+      "test": 10,
+      "train": 28,
+      "validation": 9
+    }
+  },
+  "slices": {
+    "train": 812,
+    "validation": 290,
+    "test": 265
+  },
+  "scientific_config_hash": "d4175a8e12991a103a7590b0673b5ca323fabcf22aa50b4fa135d07686c0bce1",
+  "split_directory": "<REPOSITORY_ROOT>/hybrid_benchmark_results/data/splits/seed_123"
+}

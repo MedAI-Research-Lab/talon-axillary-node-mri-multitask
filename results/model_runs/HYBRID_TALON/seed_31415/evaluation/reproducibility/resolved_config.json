@@ -1,0 +1,297 @@
+{
+  "project_name": "Hybrid_TALON_Repeated_Holdout",
+  "dataset_root": "<PRIVATE_DATA_ROOT>/kontrast",
+  "metadata_path": "<PRIVATE_DATA_ROOT>/Patient_Dataset_Info_cleaned_v2.xlsx",
+  "output_root": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs",
+  "columns": {
+    "patient": "PatientName",
+    "image_name": "ImageName",
+    "image_path": "ImagePath",
+    "mask_path": "roiPath",
+    "class_name": "ClassName"
+  },
+  "physical_spacing_columns": {
+    "x_mm": null,
+    "y_mm": null,
+    "slice_thickness_mm": null
+  },
+  "expected_clean_cohort": {
+    "metadata_case_records": 104,
+    "subjects": 103,
+    "cases": 104,
+    "slices": 1367,
+    "class_slices": {
+      "IBC": 938,
+      "IGM": 429
+    },
+    "class_cases": {
+      "IBC": 57,
+      "IGM": 47
+    },
+    "class_subjects": {
+      "IBC": 57,
+      "IGM": 46
+    }
+  },
+  "mask_threshold": 127,
+  "image_size": 512,
+  "seed": 31415,
+  "split_seed": 31415,
+  "repeated_seeds": [
+    42,
+    123,
+    2026,
+    31415,
+    27182
+  ],
+  "class_mapping": {
+    "IBC": 0,
+    "IGM": 1
+  },
+  "split": {
+    "validation_fraction": 0.2,
+    "test_fraction": 0.2
+  },
+  "cross_validation": {
+    "enabled": false,
+    "folds": 5,
+    "train_folds": true
+  },
+  "test_access": {
+    "enforce_single_evaluation_per_run": true
+  },
+  "loader": {
+    "batch_size": 8,
+    "num_workers": 2,
+    "pin_memory": true,
+    "balanced_sampler": true
+  },
+  "augmentation": {
+    "enabled": true,
+    "horizontal_flip_probability": 0.5,
+    "shift_limit": 0.06,
+    "scale_limit": 0.1,
+    "rotate_limit_degrees": 12,
+    "geometric_probability": 0.6,
+    "intensity_probability": 0.2,
+    "brightness_contrast_limit": 0.06,
+    "noise_variance": [
+      0.0005,
+      0.003
+    ],
+    "tiny_crop_probability": 0.3,
+    "tiny_area_max_px_native": 80,
+    "tiny_crop_margin_px": 40,
+    "tiny_crop_min_side_px": 64
+  },
+  "model": {
+    "input_channels": 3,
+    "base_channels": 32,
+    "baseline_base_channel_candidates": [
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      48
+    ],
+    "num_classes": 2,
+    "classifier_dropout": 0.5,
+    "spatial_dropout": 0.2,
+    "descriptor_dropout": 0.3,
+    "descriptor_dim": 12,
+    "descriptor_embed_dim": 64,
+    "mask_quality_embed_dim": 32,
+    "global_feature_scale": 0.08,
+    "patch_nin_local_channels": 16,
+    "patch_nin_hidden_channels": 32,
+    "patch_nin_kernel_size": 7,
+    "patch_nin_residual_scale": 0.85,
+    "body_threshold": 0.035,
+    "body_temperature": 0.018,
+    "body_smooth_kernel": 17,
+    "body_outside_logit_penalty": 2.2,
+    "location_logit_scale": 0.7,
+    "low_prior_gamma": 2.0,
+    "low_prior_logit_penalty": 1.7,
+    "spatial_prior_blur_kernel": 31,
+    "spatial_prior_floor": 0.02,
+    "detach_predicted_mask_for_classifier": true,
+    "descriptor_loss_backprop": true
+  },
+  "loss": {
+    "segmentation": {
+      "focal_bce": 0.25,
+      "tversky": 0.65,
+      "boundary": 0.1,
+      "focal_gamma": 2.0,
+      "tversky_alpha": 0.3,
+      "tversky_beta": 0.7,
+      "positive_weight_cap": 35.0
+    },
+    "classification": {
+      "weight": 1.05,
+      "label_smoothing": 0.05
+    },
+    "focus": 0.1,
+    "descriptor": 0.04,
+    "centroid": 0.06,
+    "location": 0.04,
+    "low_prior": 0.1,
+    "outside_body": 0.04,
+    "doctor_ball": 0.08,
+    "candidate_recall": 0.08,
+    "segmentation_classification_coupling": 0.08
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "learning_rate": 8e-05,
+    "weight_decay": 0.0008,
+    "gradient_clip_norm": 1.0,
+    "amp": true,
+    "minimum_phase_learning_rate": 2.5e-05
+  },
+  "training": {
+    "legacy_unused_general_epochs": 80,
+    "legacy_unused_general_patience": 18,
+    "ema_decay": 0.88,
+    "minimum_checkpoint_improvement": 0.004,
+    "recall_floor": 0.55,
+    "recall_floor_penalty": 0.18,
+    "overfit_dice_gap_stop": 0.25,
+    "baseline_epoch_budget": 210,
+    "baseline_patience": 16,
+    "cosine_eta_fraction": 0.05,
+    "common_checkpoint_weights": {
+      "dice": 0.3,
+      "balanced_accuracy": 0.2,
+      "macro_f1": 0.15,
+      "segmentation_recall": 0.2,
+      "empty_prediction_penalty": 0.075,
+      "missed_target_penalty": 0.075
+    },
+    "teacher_phases": [
+      {
+        "name": "teacher1_anatomy_normal",
+        "max_epochs": 45,
+        "patience": 12,
+        "lr_scale": 1.0
+      },
+      {
+        "name": "teacher2_candidate_search",
+        "max_epochs": 45,
+        "patience": 12,
+        "lr_scale": 0.75
+      },
+      {
+        "name": "teacher3_doctor_ball_objectness",
+        "max_epochs": 45,
+        "patience": 12,
+        "lr_scale": 0.5625
+      },
+      {
+        "name": "teacher4_seg_cls_coupling",
+        "max_epochs": 45,
+        "patience": 16,
+        "lr_scale": 0.421875
+      },
+      {
+        "name": "teacher5_report_ready_polish",
+        "max_epochs": 30,
+        "patience": 12,
+        "lr_scale": 0.31640625
+      }
+    ]
+  },
+  "selection": {
+    "segmentation_thresholds": [
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9
+    ],
+    "classification_threshold": 0.5,
+    "case_aggregation_primary": "mean_all",
+    "case_aggregation_secondary": [
+      "topk_confidence",
+      "topk_lesion"
+    ],
+    "top_k": 5
+  },
+  "components": {
+    "connectivity": 8,
+    "minimum_areas_px": [
+      1,
+      10,
+      25
+    ],
+    "poor_match_iou": 0.1,
+    "poor_match_purity": 0.1,
+    "validation_iou_grid": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25
+    ],
+    "validation_purity_grid": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25
+    ],
+    "radiologist_approved_thresholds": null,
+    "analysis_resolution": [
+      512,
+      512
+    ]
+  },
+  "statistics": {
+    "bootstrap_iterations": 5000,
+    "confidence_level": 0.95,
+    "ece_bins": 10,
+    "multiple_testing": "holm",
+    "calibration_method": "platt"
+  },
+  "experiments": {
+    "primary": [
+      "TALON_FULL",
+      "UNET_MTL_MASK_GUIDED"
+    ],
+    "ablations": [
+      "TALON_NO_SPATIAL_PRIOR",
+      "TALON_NO_DOCTOR_DESCRIPTOR",
+      "TALON_NO_ASPP",
+      "TALON_NO_VH_ATTENTION",
+      "TALON_NO_PATCH_NIN",
+      "TALON_NO_SEQUENTIAL_TEACHER"
+    ]
+  },
+  "runtime": {
+    "experiment": "HYBRID_TALON",
+    "seed": 31415,
+    "python": "3.10.14",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "torch": "2.7.1+cu118",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "checkpoint_sha256": "4602e2e58ba001f203b6df1ef8134f1312658b543b304419fc23e8f6b26d803f",
+    "metadata_sha256": "5b2c5b75bdd85f091423812c41905db4e2db8d1fd1d4f550e400c40aa606cd76"
+  }
+}

@@ -1,0 +1,767 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="31.1.5">
+  <diagram id="figure_S1_talon_detailed_computational_graph_v4" name="Page-1">
+    <mxGraphModel dx="7800" dy="4200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="7800" pageHeight="4200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="figure_S1_talon_detailed_computational_graph_v4_title" value="Executed TALON architecture: segmentation and multi-evidence classification" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=48;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="60" y="15" width="7680" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_lane_input" value="Input construction" style="swimlane;horizontal=1;startSize=52;rounded=1;arcSize=10;fillColor=none;swimlaneFillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=32;fontStyle=1;align=left;spacingLeft=16;shadow=0;gradientColor=none;collapsible=0;" vertex="1" parent="1" order="1">
+          <mxGeometry x="45" y="112" width="7710" height="518" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_lane_seg" value="Segmentation path instantiated within TALON" style="swimlane;horizontal=1;startSize=52;rounded=1;arcSize=10;fillColor=none;swimlaneFillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=32;fontStyle=1;align=left;spacingLeft=16;shadow=0;gradientColor=none;collapsible=0;" vertex="1" parent="1" order="2">
+          <mxGeometry x="45" y="675" width="4050" height="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_lane_cls" value="Instantiated legacy multi-evidence classification path" style="swimlane;horizontal=1;startSize=52;rounded=1;arcSize=10;fillColor=none;swimlaneFillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=32;fontStyle=1;align=left;spacingLeft=16;shadow=0;gradientColor=none;collapsible=0;" vertex="1" parent="1" order="3">
+          <mxGeometry x="4170" y="675" width="3585" height="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_lane_loss" value="Training supervision and phase-weighted objectives" style="swimlane;horizontal=1;startSize=52;rounded=1;arcSize=10;fillColor=none;swimlaneFillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=32;fontStyle=1;align=left;spacingLeft=16;shadow=0;gradientColor=none;collapsible=0;" vertex="1" parent="1" order="4">
+          <mxGeometry x="45" y="2430" width="7710" height="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_gt_mask" value="Ground-truth ROI mask" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_loss" order="5" evidencePath="supervision" codeRefs="talon_codex/losses.py:77-80,93-109">
+          <mxGeometry x="120" y="2640" width="480" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_class_target" value="Cohort class target" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_loss" order="6" evidencePath="supervision" codeRefs="talon_codex/losses.py:81-86,108-109">
+          <mxGeometry x="120" y="2970" width="480" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_image" value="RGB image" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_input" order="10" evidencePath="source" codeRefs="hybrid_talon.py:136-146,261-263,559-567">
+          <mxGeometry x="105" y="262" width="420" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_fixed_texture" value="FixedTextureMaps&lt;br&gt;RGB + gradient + Laplacian + local variance&lt;br&gt;6 channels" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_input" order="20" evidencePath="input_feature" codeRefs="hybrid_talon.py:26-41,128-138">
+          <mxGeometry x="750" y="158" width="585" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_coord_body" value="Coordinate/radial maps + body field&lt;br&gt;3 + 1 channels" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_input" order="21" evidencePath="input_feature" codeRefs="hybrid_talon.py:109-125,132-139">
+          <mxGeometry x="750" y="390" width="585" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_train_prior" value="Training-mask spatial prior&lt;br&gt;prior and 1 − prior" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_input" order="22" evidencePath="training_only" codeRefs="hybrid_talon.py:162-169,245-263 | talon_codex/training.py:239-242">
+          <mxGeometry x="1500" y="150" width="570" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_image_location" value="Learned image-location logits&lt;br&gt;from 10-channel base" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_input" order="30" evidencePath="anatomical_evidence" codeRefs="hybrid_talon.py:134-146">
+          <mxGeometry x="2250" y="382" width="570" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_rich_input" value="13-channel enriched input&lt;br&gt;base 10 + sigmoid(image location)&lt;br&gt;+ prior + inverse prior" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=28;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_input" order="40" evidencePath="input_tensor" codeRefs="hybrid_talon.py:136-146,249-250,261-264">
+          <mxGeometry x="3075" y="248" width="705" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e1" value="Residual stem E1&lt;br&gt;32 channels" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="50" evidencePath="encoder" codeRefs="hybrid_talon.py:54-61,247-251,264 | runtime_config_seed_123.json:103-106">
+          <mxGeometry x="135" y="810" width="450" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e2" value="Downsample + residual E2&lt;br&gt;64 channels" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="60" evidencePath="encoder" codeRefs="hybrid_talon.py:64-70,251,265 | runtime_config_seed_123.json:103-106">
+          <mxGeometry x="135" y="1102" width="450" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e3" value="Downsample + residual E3&lt;br&gt;128 channels" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="70" evidencePath="encoder" codeRefs="hybrid_talon.py:64-70,252,266 | runtime_config_seed_123.json:103-106">
+          <mxGeometry x="135" y="1395" width="450" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e4" value="Downsample + residual E4&lt;br&gt;256 channels" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="80" evidencePath="encoder" codeRefs="hybrid_talon.py:64-70,253,267 | runtime_config_seed_123.json:103-106">
+          <mxGeometry x="135" y="1688" width="450" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_vh" value="Vertical–horizontal&lt;br&gt;attention" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="90" evidencePath="neck" codeRefs="hybrid_talon.py:73-84,98-106,254,267">
+          <mxGeometry x="825" y="1688" width="480" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_aspp" value="ASPP&lt;br&gt;rates 1, 3, 6, 9" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="100" evidencePath="neck" codeRefs="hybrid_talon.py:87-95,102,106">
+          <mxGeometry x="1470" y="1688" width="480" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_bottleneck" value="Residual neck fusion&lt;br&gt;executed bottleneck" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="110" evidencePath="bottleneck" codeRefs="hybrid_talon.py:98-106,267,277">
+          <mxGeometry x="2085" y="1688" width="510" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_location_head" value="Bottleneck anatomical-location head&lt;br&gt;features + coordinate/radial + resized-image body" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=28;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="120" evidencePath="segmentation_anatomy" codeRefs="hybrid_talon.py:149-159,255,268">
+          <mxGeometry x="1845" y="1260" width="660" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_focus_gate" value="FocusGate&lt;br&gt;bottleneck + sigmoid(location) + spatial prior" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="130" evidencePath="segmentation_focus" codeRefs="hybrid_talon.py:172-180,257,269-271">
+          <mxGeometry x="2715" y="1680" width="540" height="172" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_focused" value="Focused bottleneck&lt;br&gt;b × [1 + sigmoid(focus)]" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="140" evidencePath="segmentation_focus" codeRefs="hybrid_talon.py:270-272">
+          <mxGeometry x="2715" y="1425" width="540" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_d3" value="Decoder D3&lt;br&gt;upsample + E3 skip" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="150" evidencePath="decoder" codeRefs="hybrid_talon.py:183-200,272">
+          <mxGeometry x="3075" y="1185" width="540" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_d2" value="Decoder D2&lt;br&gt;upsample + E2 skip" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="160" evidencePath="decoder" codeRefs="hybrid_talon.py:183-200,272">
+          <mxGeometry x="3075" y="975" width="540" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_d1" value="Decoder D1 features&lt;br&gt;upsample + E1 skip" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="170" evidencePath="decoder" codeRefs="hybrid_talon.py:183-200,272">
+          <mxGeometry x="3075" y="765" width="540" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_coarse" value="Coarse logits" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="180" evidencePath="segmentation_logits" codeRefs="hybrid_talon.py:190,200,272">
+          <mxGeometry x="3690" y="765" width="360" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_patchnin" value="PatchNIN refiner&lt;br&gt;D1 features + coarse logits" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="190" evidencePath="segmentation_refinement" codeRefs="hybrid_talon.py:203-215,259,273">
+          <mxGeometry x="3660" y="998" width="390" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_lesion_logits" value="Lesion logits" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="200" evidencePath="segmentation_output" codeRefs="hybrid_talon.py:273-282">
+          <mxGeometry x="3660" y="1238" width="390" height="142" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_lesion_probability" value="Sigmoid lesion&lt;br&gt;probability map" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_seg" order="210" evidencePath="segmentation_output" codeRefs="hybrid_talon.py:559-562">
+          <mxGeometry x="3660" y="1455" width="390" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_cls_projected_features" value="1 × 1 projected&lt;br&gt;bottleneck features" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="220" evidencePath="classification_feature" codeRefs="hybrid_talon.py:411-412,428-440,569-580">
+          <mxGeometry x="4260" y="1980" width="510" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_detached_guidance" value="Detached lesion guidance&lt;br&gt;lesion probability.detach()" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_cls" order="221" evidencePath="detached_mask" codeRefs="hybrid_talon.py:486-505,560-567">
+          <mxGeometry x="4260" y="780" width="510" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_legacy_maps" value="Legacy evidence maps&lt;br&gt;texture; body; sigmoid(image-location)&lt;br&gt;training prior; low-prior mask" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=28;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="222" evidencePath="classification_map" codeRefs="hybrid_talon.py:305-337,460-505">
+          <mxGeometry x="4260" y="1035" width="510" height="218" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_context" value="Perilesional context ring&lt;br&gt;max-pool17 − lesion" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="230" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:448">
+          <mxGeometry x="4950" y="750" width="540" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_legacy_descriptors" value="12 legacy lesion descriptors&lt;br&gt;image + detached mask + detached texture" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="231" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:350-385,474,486-503">
+          <mxGeometry x="4950" y="1020" width="540" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_mask_quality" value="5 mask-quality features&lt;br&gt;area; outside body; low prior;&lt;br&gt;inside body; prior overlap" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="232" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:488-503">
+          <mxGeometry x="4950" y="1305" width="540" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_pool_global" value="Body/prior-weighted&lt;br&gt;global pooling × 0.08" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="240" evidencePath="fusion_branch_1" codeRefs="hybrid_talon.py:449">
+          <mxGeometry x="5715" y="720" width="585" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_pool_lesion" value="Detached-lesion-weighted&lt;br&gt;pooling" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="241" evidencePath="fusion_branch_2" codeRefs="hybrid_talon.py:450">
+          <mxGeometry x="5715" y="930" width="585" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_pool_context" value="Perilesional-context&lt;br&gt;pooling" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="242" evidencePath="fusion_branch_3" codeRefs="hybrid_talon.py:448,451">
+          <mxGeometry x="5715" y="1140" width="585" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_pool_body_location" value="Body + image-location + prior&lt;br&gt;weighted pooling" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="243" evidencePath="fusion_branch_4" codeRefs="hybrid_talon.py:452">
+          <mxGeometry x="5715" y="1350" width="585" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_descriptor_mlp" value="Legacy-descriptor MLP" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="244" evidencePath="fusion_branch_5" codeRefs="hybrid_talon.py:416-421,453">
+          <mxGeometry x="5715" y="1575" width="585" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_quality_mlp" value="Mask-quality MLP" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="245" evidencePath="fusion_branch_6" codeRefs="hybrid_talon.py:422,454">
+          <mxGeometry x="5715" y="1785" width="585" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_fusion" value="Concatenate exactly six&lt;br&gt;evidence branches&lt;br&gt;classifier head" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="250" evidencePath="classification_fusion" codeRefs="hybrid_talon.py:423-426,455-457">
+          <mxGeometry x="6600" y="1140" width="525" height="218" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_class_logits" value="Two-class logits&lt;br&gt;IBC / IGM" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_cls" order="260" evidencePath="classification_output" codeRefs="hybrid_talon.py:424-426,569-588">
+          <mxGeometry x="7200" y="1530" width="450" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_seg_loss" value="Segmentation loss&lt;br&gt;focal BCE + Tversky + Sobel boundary" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_loss" order="270" evidencePath="loss" codeRefs="talon_codex/losses.py:14-52,77-92">
+          <mxGeometry x="840" y="2565" width="780" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_location_focus_loss" value="Location and focus losses&lt;br&gt;location BCE; focus BCE to max-pool15 target" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_loss" order="271" evidencePath="loss" codeRefs="talon_codex/losses.py:93-96,110-119">
+          <mxGeometry x="840" y="2910" width="780" height="202" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_revised_descriptors" value="Separate revised mask descriptors&lt;br&gt;mask_descriptors(probability)&lt;br&gt;returned auxiliary interface" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=28;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;" vertex="1" parent="1" lane="arch_lane_loss" order="272" evidencePath="auxiliary_interface" codeRefs="hybrid_talon.py:218-239,581-589">
+          <mxGeometry x="1845" y="2565" width="780" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_descriptor_loss" value="Descriptor + centroid losses&lt;br&gt;versus descriptors from ground truth" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_loss" order="273" evidencePath="loss" codeRefs="talon_codex/losses.py:97-100,110-119">
+          <mxGeometry x="1845" y="2910" width="780" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_constraint_losses" value="Spatial/coverage auxiliary losses&lt;br&gt;low prior; outside body; candidate recall;&lt;br&gt;doctor-ball objectness" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=28;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_loss" order="274" evidencePath="loss" codeRefs="talon_codex/losses.py:100-107,110-119">
+          <mxGeometry x="2865" y="2550" width="900" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_coupling_loss" value="Segmentation–classification coupling&lt;br&gt;correct-class probability vs detached per-sample Dice" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=28;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_loss" order="275" evidencePath="loss" codeRefs="talon_codex/losses.py:107-109,113-119">
+          <mxGeometry x="2865" y="2925" width="900" height="202" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_class_loss" value="Class-weighted cross-entropy&lt;br&gt;label smoothing" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_loss" order="276" evidencePath="loss" codeRefs="talon_codex/losses.py:81-92">
+          <mxGeometry x="4020" y="2670" width="780" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_total_loss" value="Phase-weighted total multi-task objective&lt;br&gt;segmentation + classification + enabled auxiliary losses" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=none;strokeColor=#000000;strokeWidth=2.8;fontColor=#000000;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=10;shadow=0;gradientColor=none;dashed=1;dashPattern=8 6;" vertex="1" parent="1" lane="arch_lane_loss" order="280" evidencePath="loss_total" codeRefs="talon_codex/losses.py:55-65,86-119 | talon_codex/training.py:317-401">
+          <mxGeometry x="5310" y="2715" width="1575" height="218" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e001" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_image" target="arch_fixed_texture" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:33-41,136-138">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e002" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_image" target="arch_coord_body" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:110-125,136-139">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e003" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_fixed_texture" target="arch_image_location" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:134-139">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e004" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_coord_body" target="arch_image_location" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:134-139">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e005" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_fixed_texture" target="arch_rich_input" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:137-143">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1395" y="352" />
+              <mxPoint x="3000" y="352" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e006" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_coord_body" target="arch_rich_input" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:138-143">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1395" y="585" />
+              <mxPoint x="2970" y="585" />
+              <mxPoint x="2970" y="398" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e007" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_train_prior" target="arch_rich_input" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:140-145">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e008" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_image_location" target="arch_rich_input" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:139-146">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e009" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_rich_input" target="arch_e1" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:249-250,263-264">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3428" y="645" />
+              <mxPoint x="360" y="645" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e010" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_e1" target="arch_e2" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:251,264-265">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e011" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_e2" target="arch_e3" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:252,265-266">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e012" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_e3" target="arch_e4" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:253,266-267">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e013" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_e4" target="arch_vh" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:101,105-106,267">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e014" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_vh" target="arch_aspp" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:101-106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e015" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_aspp" target="arch_bottleneck" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:102-106,267">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e016" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_bottleneck" target="arch_location_head" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:268">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e017" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_image" target="arch_location_head" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:156-159,268">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="45" y="345" />
+              <mxPoint x="45" y="1222" />
+              <mxPoint x="1785" y="1222" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e018" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_bottleneck" target="arch_focus_gate" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:270">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e019" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_location_head" target="arch_focus_gate" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:270">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2640" y="1354" />
+              <mxPoint x="2640" y="1766" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e020" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_train_prior" target="arch_focus_gate" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:256,269-270">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2100" y="600" />
+              <mxPoint x="4035" y="600" />
+              <mxPoint x="4035" y="1965" />
+              <mxPoint x="2985" y="1965" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e021" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_bottleneck" target="arch_focused" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:271">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2340" y="1605" />
+              <mxPoint x="2640" y="1605" />
+              <mxPoint x="2640" y="1504" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e022" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_focus_gate" target="arch_focused" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:270-271">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e023" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_focused" target="arch_d3" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:272">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e024" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_e3" target="arch_d3" direction="forward" evidencePath="skip" codeRefs="hybrid_talon.py:192-196,272">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="645" y="1478" />
+              <mxPoint x="2955" y="1478" />
+              <mxPoint x="2955" y="1263" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e025" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_d3" target="arch_d2" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:195-197">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e026" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_e2" target="arch_d2" direction="forward" evidencePath="skip" codeRefs="hybrid_talon.py:192-197,272">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="675" y="1182" />
+              <mxPoint x="2955" y="1182" />
+              <mxPoint x="2955" y="1053" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e027" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_d2" target="arch_d1" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:197-199">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e028" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_e1" target="arch_d1" direction="forward" evidencePath="skip" codeRefs="hybrid_talon.py:192-200,272">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="645" y="888" />
+              <mxPoint x="645" y="735" />
+              <mxPoint x="2985" y="735" />
+              <mxPoint x="2985" y="843" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e029" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_d1" target="arch_coarse" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:190,200,272">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e030" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_d1" target="arch_patchnin" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:214-215,272-273">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3622" y="843" />
+              <mxPoint x="3622" y="1077" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e031" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_coarse" target="arch_patchnin" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:214-215,272-273">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e032" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_patchnin" target="arch_lesion_logits" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:214-215,273-275">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e033" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_lesion_logits" target="arch_lesion_probability" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:560-562">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e034" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_bottleneck" target="arch_cls_projected_features" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:440,569-572">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2340" y="2325" />
+              <mxPoint x="4140" y="2325" />
+              <mxPoint x="4140" y="2058" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e035" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_lesion_probability" target="arch_detached_guidance" direction="forward" evidencePath="detach" codeRefs="hybrid_talon.py:486,560-567">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4140" y="1533" />
+              <mxPoint x="4140" y="858" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e036" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_image" target="arch_legacy_maps" direction="forward" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:474-475">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="615" />
+              <mxPoint x="4230" y="615" />
+              <mxPoint x="4230" y="1100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e037" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_image_location" target="arch_legacy_maps" direction="forward" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:476-481,562-567">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2865" y="585" />
+              <mxPoint x="4200" y="585" />
+              <mxPoint x="4200" y="1144" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e038" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_train_prior" target="arch_legacy_maps" direction="forward" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:482-485,565">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2130" y="555" />
+              <mxPoint x="4170" y="555" />
+              <mxPoint x="4170" y="1188" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e039" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_detached_guidance" target="arch_context" direction="forward" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:448,486">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e040" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_detached_guidance" target="arch_legacy_descriptors" direction="forward" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:486-487">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4830" y="858" />
+              <mxPoint x="4830" y="1113" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e041" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.35;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_image" target="arch_legacy_descriptors" direction="forward" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:350-385,467-487">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="592" />
+              <mxPoint x="4890" y="592" />
+              <mxPoint x="4890" y="1113" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e042" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_legacy_maps" target="arch_legacy_descriptors" direction="forward" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:474,487">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e043" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_detached_guidance" target="arch_mask_quality" direction="forward" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:488-495">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4890" y="858" />
+              <mxPoint x="4890" y="1398" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e044" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_legacy_maps" target="arch_mask_quality" direction="forward" evidencePath="classification_evidence" codeRefs="hybrid_talon.py:488-495">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4920" y="1143" />
+              <mxPoint x="4920" y="1398" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e045" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_cls_projected_features" target="arch_pool_global" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:440,449">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4830" y="2058" />
+              <mxPoint x="5610" y="2058" />
+              <mxPoint x="5610" y="795" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e046" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_legacy_maps" target="arch_pool_global" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:444-449">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4515" y="975" />
+              <mxPoint x="5640" y="975" />
+              <mxPoint x="5640" y="795" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e047" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_cls_projected_features" target="arch_pool_lesion" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:440,450">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4860" y="2085" />
+              <mxPoint x="5580" y="2085" />
+              <mxPoint x="5580" y="1005" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e048" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_detached_guidance" target="arch_pool_lesion" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:442,450,486">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4800" y="960" />
+              <mxPoint x="5670" y="960" />
+              <mxPoint x="5670" y="1005" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e049" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_cls_projected_features" target="arch_pool_context" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:440,451">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4890" y="2115" />
+              <mxPoint x="5550" y="2115" />
+              <mxPoint x="5550" y="1215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e050" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_context" target="arch_pool_context" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:448,451">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5670" y="828" />
+              <mxPoint x="5670" y="1215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e051" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_cls_projected_features" target="arch_pool_body_location" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:440,452">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4920" y="2145" />
+              <mxPoint x="5520" y="2145" />
+              <mxPoint x="5520" y="1432" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e052" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_legacy_maps" target="arch_pool_body_location" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:444-452">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4860" y="1143" />
+              <mxPoint x="4860" y="1535" />
+              <mxPoint x="5520" y="1535" />
+              <mxPoint x="5520" y="1433" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e053" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_legacy_descriptors" target="arch_descriptor_mlp" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:416-421,453,574">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5550" y="1114" />
+              <mxPoint x="5550" y="1650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e054" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_mask_quality" target="arch_quality_mlp" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:422,454,579">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5580" y="1399" />
+              <mxPoint x="5580" y="1860" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e055" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.14;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_pool_global" target="arch_fusion" direction="forward" evidencePath="fusion_branch_1" codeRefs="hybrid_talon.py:455-457">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6465" y="795" />
+              <mxPoint x="6465" y="1170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e056" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.31;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_pool_lesion" target="arch_fusion" direction="forward" evidencePath="fusion_branch_2" codeRefs="hybrid_talon.py:455-457">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6420" y="1005" />
+              <mxPoint x="6420" y="1208" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e057" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.48;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_pool_context" target="arch_fusion" direction="forward" evidencePath="fusion_branch_3" codeRefs="hybrid_talon.py:455-457">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6375" y="1215" />
+              <mxPoint x="6375" y="1245" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e058" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.62;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_pool_body_location" target="arch_fusion" direction="forward" evidencePath="fusion_branch_4" codeRefs="hybrid_talon.py:455-457">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6375" y="1432" />
+              <mxPoint x="6375" y="1275" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e059" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.79;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_descriptor_mlp" target="arch_fusion" direction="forward" evidencePath="fusion_branch_5" codeRefs="hybrid_talon.py:455-457">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6420" y="1650" />
+              <mxPoint x="6420" y="1312" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e060" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.93;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_quality_mlp" target="arch_fusion" direction="forward" evidencePath="fusion_branch_6" codeRefs="hybrid_talon.py:455-457">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6465" y="1860" />
+              <mxPoint x="6465" y="1342" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e061" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;" edge="1" parent="1" source="arch_fusion" target="arch_class_logits" direction="forward" evidencePath="data" codeRefs="hybrid_talon.py:424-426,455-457,570-588">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_e062" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_lesion_logits" target="arch_seg_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:77-92">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4080" y="1308" />
+              <mxPoint x="4080" y="2400" />
+              <mxPoint x="1230" y="2400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e063" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_gt_mask" target="arch_seg_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:77-92">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="705" y="2718" />
+              <mxPoint x="705" y="2658" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e064" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_location_head" target="arch_location_focus_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:93-96">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1770" y="1353" />
+              <mxPoint x="1770" y="2385" />
+              <mxPoint x="1230" y="2385" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e065" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_focus_gate" target="arch_location_focus_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:93-96">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2655" y="1767" />
+              <mxPoint x="2655" y="2370" />
+              <mxPoint x="1260" y="2370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e066" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_gt_mask" target="arch_location_focus_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:93-96">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="675" y="2850" />
+              <mxPoint x="750" y="2850" />
+              <mxPoint x="750" y="3012" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e067" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_lesion_probability" target="arch_revised_descriptors" direction="forward" evidencePath="auxiliary" codeRefs="hybrid_talon.py:581-588">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4050" y="1533" />
+              <mxPoint x="4050" y="2355" />
+              <mxPoint x="2235" y="2355" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e068" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_revised_descriptors" target="arch_descriptor_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:97-100">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2685" y="2662" />
+              <mxPoint x="2685" y="3008" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e069" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_gt_mask" target="arch_descriptor_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:97-100">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="3675" />
+              <mxPoint x="1770" y="3675" />
+              <mxPoint x="1770" y="3008" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e070" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_lesion_probability" target="arch_constraint_losses" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:100-107">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4020" y="1575" />
+              <mxPoint x="4020" y="2415" />
+              <mxPoint x="3315" y="2415" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e071" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.47;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_train_prior" target="arch_constraint_losses" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:100-103">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2145" y="240" />
+              <mxPoint x="2145" y="180" />
+              <mxPoint x="4118" y="180" />
+              <mxPoint x="4118" y="2460" />
+              <mxPoint x="3285" y="2460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e072" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.23;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_image" target="arch_constraint_losses" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:102-103">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="75" y="345" />
+              <mxPoint x="75" y="2475" />
+              <mxPoint x="3075" y="2475" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e073" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_gt_mask" target="arch_constraint_losses" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:104-107">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="645" y="3735" />
+              <mxPoint x="2790" y="3735" />
+              <mxPoint x="2790" y="2670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e074" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_class_logits" target="arch_coupling_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:107-109">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="7680" y="1608" />
+              <mxPoint x="7680" y="2340" />
+              <mxPoint x="3315" y="2340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e075" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.9;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_lesion_probability" target="arch_coupling_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:107-109">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4890" y="1533" />
+              <mxPoint x="4890" y="3188" />
+              <mxPoint x="3675" y="3188" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e076" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_gt_mask" target="arch_coupling_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:107-109">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="630" y="3795" />
+              <mxPoint x="2760" y="3795" />
+              <mxPoint x="2760" y="3027" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e077" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_class_target" target="arch_coupling_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:108-109">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="645" y="3855" />
+              <mxPoint x="2730" y="3855" />
+              <mxPoint x="2730" y="3027" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e078" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_class_logits" target="arch_class_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:81-92">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="7710" y="1608" />
+              <mxPoint x="7710" y="2370" />
+              <mxPoint x="4410" y="2370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e079" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;" edge="1" parent="1" source="arch_class_target" target="arch_class_loss" direction="forward" evidencePath="supervision" codeRefs="talon_codex/losses.py:81-92">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="675" y="3915" />
+              <mxPoint x="3945" y="3915" />
+              <mxPoint x="3945" y="2763" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e080" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.72;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_seg_loss" target="arch_total_loss" direction="forward" evidencePath="loss" codeRefs="talon_codex/losses.py:86-92,115-119">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1230" y="2490" />
+              <mxPoint x="6450" y="2490" />
+              <mxPoint x="6450" y="2655" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e081" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.72;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_location_focus_loss" target="arch_total_loss" direction="forward" evidencePath="loss" codeRefs="talon_codex/losses.py:91-119">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1230" y="3330" />
+              <mxPoint x="6450" y="3330" />
+              <mxPoint x="6450" y="3000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e082" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.53;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_descriptor_loss" target="arch_total_loss" direction="forward" evidencePath="loss" codeRefs="talon_codex/losses.py:91-119">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2235" y="3270" />
+              <mxPoint x="6150" y="3270" />
+              <mxPoint x="6150" y="3000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e083" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.53;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_constraint_losses" target="arch_total_loss" direction="forward" evidencePath="loss" codeRefs="talon_codex/losses.py:91-119">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3315" y="2520" />
+              <mxPoint x="6150" y="2520" />
+              <mxPoint x="6150" y="2655" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e084" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.34;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_coupling_loss" target="arch_total_loss" direction="forward" evidencePath="loss" codeRefs="talon_codex/losses.py:91-119">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3315" y="3210" />
+              <mxPoint x="5850" y="3210" />
+              <mxPoint x="5850" y="3000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arch_e085" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3.0;endArrow=block;endFill=1;endSize=14;dashed=1;dashPattern=8 6;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="arch_class_loss" target="arch_total_loss" direction="forward" evidencePath="loss" codeRefs="talon_codex/losses.py:86-92">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4950" y="2763" />
+              <mxPoint x="4950" y="2823" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

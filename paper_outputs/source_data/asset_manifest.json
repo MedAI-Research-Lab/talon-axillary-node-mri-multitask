@@ -1,0 +1,72 @@
+[
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/figures/figure_1_workflow_5seed_en.png",
+    "size": 122381,
+    "sha256": "6af59d176bde6e1e0ce91a0b030faebf712d900fd86225992cb52b6568df7c4a"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/figures/figure_2_five_seed_performance_en.png",
+    "size": 197783,
+    "sha256": "b1b67ec328b7e65f4211502c65a2cb5ca27058bcabd72982ffe8260bc2a8e3f8"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/figures/figure_3_test_segmentation_cases_en.png",
+    "size": 1360187,
+    "sha256": "4c80de8dc40643eda1d2b394a763c5ea096eec36629400ecd028d938ec8f9fd9"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/figures/supplementary_figure_S9_additional_segmentation_cases_en.png",
+    "size": 830384,
+    "sha256": "46dd8d9229663eda6144da3da9308785e45acb6b7e394984a6dac6213fe576c1"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/figures/supplementary_figure_S3_confusion_matrices_en.png",
+    "size": 257047,
+    "sha256": "1fa324a1516f9183170954acfefcb01593b40f64b0bf66163901e4427f2da804"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/figures/supplementary_figure_S4_calibration_en.png",
+    "size": 402160,
+    "sha256": "0fbfb9bd65fe95eeb2d72bb41069f08576e09cddec524ada98f17d34ebdfd67a"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/figures/supplementary_figure_S5_relative_overlap_en.png",
+    "size": 142877,
+    "sha256": "bfbc2b062daa58ea363cc33fc178ce9bb008439d79ed64318f160f8514ca0b32"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/figures/supplementary_figure_S6_subgroups_en.png",
+    "size": 115917,
+    "sha256": "4bb609639a4af25af2c417756091dd2870f6e270fde67dbb7d8848f490f19a60"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/figures/supplementary_figure_S7_teacher_checkpoints_en.png",
+    "size": 139150,
+    "sha256": "c8326acb449e907ee610455abe96aceb852d5903a28b2cbfd19ec86fe37ae5fe"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/figures/supplementary_figure_S8_xai_gradcam_en.png",
+    "size": 285809,
+    "sha256": "34098a2e4be0dac52fd6111fe7ec6665f9acae608f5df6b3d7c7472b2f497db7"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/data/segmentation_figure_all_eligible_candidates.csv",
+    "size": 1353604,
+    "sha256": "5808cafef73b54d25fd7e578b6d8e4047e0cded1b629bc3553bb84b1be54bae0"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/data/segmentation_figure_final_selection.csv",
+    "size": 7708,
+    "sha256": "7bd0a044043da584b2582f1b845eed1b373554c87dcaefec552569a26476822f"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/data/segmentation_figure_selection_protocol.json",
+    "size": 3594,
+    "sha256": "15733ae56469dc38946f53c65d40da443be1d742a741531ba7be7de7c8daa449"
+  },
+  {
+    "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/manuscripts/q1_methods_en/q1_results_5seed_v1/data/q1_results_numeric_summary.json",
+    "size": 18992,
+    "sha256": "a2f1f50badf4f9438f1abddcc6a415132fbe5ae479997c708397c9611774a5b5"
+  }
+]

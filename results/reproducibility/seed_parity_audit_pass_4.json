@@ -1,0 +1,142 @@
+{
+  "status": "passed",
+  "created_utc": "2026-08-10T07:15:58.959893+00:00",
+  "pass_id": 4,
+  "training_performed": false,
+  "forward_inference_performed": false,
+  "canonical_scientific_config_hash": "d4175a8e12991a103a7590b0673b5ca323fabcf22aa50b4fa135d07686c0bce1",
+  "seed_configs": {
+    "123": {
+      "scientific_hash": "d4175a8e12991a103a7590b0673b5ca323fabcf22aa50b4fa135d07686c0bce1",
+      "scientific_settings_identical": true,
+      "seed": 123,
+      "split_seed": 123,
+      "seed_and_split_seed_match": true,
+      "output_root": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs"
+    },
+    "2026": {
+      "scientific_hash": "d4175a8e12991a103a7590b0673b5ca323fabcf22aa50b4fa135d07686c0bce1",
+      "scientific_settings_identical": true,
+      "seed": 2026,
+      "split_seed": 2026,
+      "seed_and_split_seed_match": true,
+      "output_root": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs"
+    },
+    "31415": {
+      "scientific_hash": "d4175a8e12991a103a7590b0673b5ca323fabcf22aa50b4fa135d07686c0bce1",
+      "scientific_settings_identical": true,
+      "seed": 31415,
+      "split_seed": 31415,
+      "seed_and_split_seed_match": true,
+      "output_root": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs"
+    },
+    "27182": {
+      "scientific_hash": "d4175a8e12991a103a7590b0673b5ca323fabcf22aa50b4fa135d07686c0bce1",
+      "scientific_settings_identical": true,
+      "seed": 27182,
+      "split_seed": 27182,
+      "seed_and_split_seed_match": true,
+      "output_root": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs"
+    }
+  },
+  "source_hashes": {
+    "canonical_config": "a636926a72cd1f42094a42db07731ef197741e482984228bfbb99eb96b331472",
+    "canonical_hybrid_model": "6a819066af96227e81f5fbe1476f1ce53da3b291b86167192a3e02a35a560c17",
+    "frozen_hybrid_model": "6a819066af96227e81f5fbe1476f1ce53da3b291b86167192a3e02a35a560c17",
+    "training_core": "06c716f55eefbfad9d70cbe8d68ebd5cff44f055c19a9a2418e5292cd8ec529f",
+    "data_core": "4ad20dc1d158b192032e3ca977f79480ac90e49446874ebb39f21679d530ccaa",
+    "evaluation_core": "b026edd580f54610a514b9064cd6ca9bb6056a60d3d3bd310a7b7dd82d813114"
+  },
+  "hybrid": {
+    "seed_42_checkpoint": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_42/checkpoints/best_overall.pt",
+    "trainable_parameters": 4930849,
+    "state_entries": 227,
+    "strict_load": true
+  },
+  "unet": {
+    "seed_42_checkpoint": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/UNET_MTL_MASK_GUIDED/seed_42/checkpoints/best_overall.pt",
+    "base_width": 36,
+    "trainable_parameters": 4219671,
+    "new_seed_constructor_trainable_parameters": 4219671,
+    "capacity_matching_rows": [
+      {
+        "talon_trainable_parameters": 4597343,
+        "baseline_base_channels": 16,
+        "baseline_trainable_parameters": 872531,
+        "relative_parameter_difference": 0.8102097233119216,
+        "selected": false
+      },
+      {
+        "talon_trainable_parameters": 4597343,
+        "baseline_base_channels": 20,
+        "baseline_trainable_parameters": 1339975,
+        "relative_parameter_difference": 0.7085327329285633,
+        "selected": false
+      },
+      {
+        "talon_trainable_parameters": 4597343,
+        "baseline_base_channels": 24,
+        "baseline_trainable_parameters": 1908411,
+        "relative_parameter_difference": 0.5848882713341162,
+        "selected": false
+      },
+      {
+        "talon_trainable_parameters": 4597343,
+        "baseline_base_channels": 28,
+        "baseline_trainable_parameters": 2577839,
+        "relative_parameter_difference": 0.43927633852858056,
+        "selected": false
+      },
+      {
+        "talon_trainable_parameters": 4597343,
+        "baseline_base_channels": 32,
+        "baseline_trainable_parameters": 3348259,
+        "relative_parameter_difference": 0.27169693451195615,
+        "selected": false
+      },
+      {
+        "talon_trainable_parameters": 4597343,
+        "baseline_base_channels": 36,
+        "baseline_trainable_parameters": 4219671,
+        "relative_parameter_difference": 0.0821500592842431,
+        "selected": true
+      },
+      {
+        "talon_trainable_parameters": 4597343,
+        "baseline_base_channels": 40,
+        "baseline_trainable_parameters": 5192075,
+        "relative_parameter_difference": 0.1293642871545586,
+        "selected": false
+      },
+      {
+        "talon_trainable_parameters": 4597343,
+        "baseline_base_channels": 48,
+        "baseline_trainable_parameters": 7439859,
+        "relative_parameter_difference": 0.6182953936654281,
+        "selected": false
+      }
+    ],
+    "state_entries": 118,
+    "strict_load": true
+  },
+  "runner_contract": {
+    "split_seed_explicitly_synchronized": true,
+    "seed_42_training_forbidden": true,
+    "hybrid_and_unet_present": true,
+    "teacher_after_hybrid_evaluation": true,
+    "same_pair_compared": true
+  },
+  "checks": {
+    "frozen_hybrid_source_byte_identical": true,
+    "hybrid_seed42_checkpoint_strict_load": true,
+    "hybrid_parameter_count_identical": true,
+    "hybrid_checkpoint_identity": true,
+    "unet_seed42_checkpoint_strict_load": true,
+    "unet_checkpoint_identity": true,
+    "new_seed_unet_constructor_parameter_count_identical": true,
+    "new_seed_unet_constructor_state_schema_identical": true,
+    "all_seed_scientific_configs_identical": true,
+    "all_seed_split_seeds_correct": true,
+    "runner_contract_complete": true
+  }
+}

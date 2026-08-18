@@ -1,0 +1,66 @@
+{
+  "status": "completed",
+  "created_utc": "2026-08-12T10:32:17.256643+00:00",
+  "seeds": [
+    42,
+    123,
+    2026,
+    31415,
+    27182
+  ],
+  "aggregation_unit": "seed-level metric",
+  "pseudo_replication_avoided": true,
+  "note": "Repeated test appearances are not pooled as independent patients.",
+  "inputs": [
+    {
+      "seed": 42,
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/per_seed/seed_42/hybrid_vs_unet_summary.csv",
+      "sha256": "1ea97f6e88ffb7c5da34dbc25991bce349a48a351fdbb39b95a52ec6fa0ca554"
+    },
+    {
+      "seed": 42,
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/per_seed/seed_42/paired_statistical_comparisons.csv",
+      "sha256": "335f817f08dc8f90977278a04d668ce6a40576f236e9af6de1d2b55ded524cdc"
+    },
+    {
+      "seed": 123,
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/per_seed/seed_123/hybrid_vs_unet_summary.csv",
+      "sha256": "0ac8b0f47a041206bdd87a21d9954162853c5d2a335f1aa83484f292e216f9c3"
+    },
+    {
+      "seed": 123,
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/per_seed/seed_123/paired_statistical_comparisons.csv",
+      "sha256": "48bc897d71d3acf191192a11936f9b8af538f17c4a72825ce8c7de9565f3ddaf"
+    },
+    {
+      "seed": 2026,
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/per_seed/seed_2026/hybrid_vs_unet_summary.csv",
+      "sha256": "233e7609debf8c196b3f132d63c13747b7d24b73e9d9a430c377cd0fef29c795"
+    },
+    {
+      "seed": 2026,
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/per_seed/seed_2026/paired_statistical_comparisons.csv",
+      "sha256": "a3e41b3098317e97b72dbbcee59245cf77c8e5bb7c6bb740594d35e9e34a9ddd"
+    },
+    {
+      "seed": 31415,
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/per_seed/seed_31415/hybrid_vs_unet_summary.csv",
+      "sha256": "1effbbb5be1e1ca191bead3d30544f43b56ef9db17bff2902611c35f299c23a7"
+    },
+    {
+      "seed": 31415,
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/per_seed/seed_31415/paired_statistical_comparisons.csv",
+      "sha256": "d62b3fa6931eb98ba91ae3309e7a228dc81fb6b2e9e6e07dfd14bf4ebc932d93"
+    },
+    {
+      "seed": 27182,
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/per_seed/seed_27182/hybrid_vs_unet_summary.csv",
+      "sha256": "692f727e28bd7d45a3453f5c390bc063f4e34a63b33220784c6ec857d4f7d4bc"
+    },
+    {
+      "seed": 27182,
+      "path": "<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/repeated_holdout_comparison/per_seed/seed_27182/paired_statistical_comparisons.csv",
+      "sha256": "6d4a59f1d7689188e9d065397c66fa5afae0286ecf8d3b1dea76d500d9e99386"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+checkpoint_type,best_validation_score,path
+joint,0.654345268911897,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/best_joint.pt
+dice,0.5412258799528354,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/best_dice.pt
+classification,0.788720097782434,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/best_classification.pt
+recall_safe,0.6177808791972549,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/best_recall_safe.pt
+dual_strong,0.7091859462176329,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/best_dual_strong.pt
+final_polish,0.6666949883452529,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/HYBRID_TALON/seed_31415/checkpoints/best_final_polish.pt

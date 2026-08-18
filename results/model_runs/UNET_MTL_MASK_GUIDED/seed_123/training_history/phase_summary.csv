@@ -1,0 +1,2 @@
+phase_index,phase,selection_key,max_epochs,patience,completed_epochs,best_epoch,best_phase_score,checkpoint
+1,standard,common,210,16,34,26,0.4495077196420193,<REPOSITORY_ROOT>/hybrid_benchmark_results/outputs/runs/UNET_MTL_MASK_GUIDED/seed_123/checkpoints/phase_01_standard_best.pt

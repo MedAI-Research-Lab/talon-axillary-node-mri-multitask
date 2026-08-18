@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "created_utc": "2026-08-12T10:32:02.068592+00:00",
+  "seed": 27182,
+  "reference_seed": 42,
+  "note": "Dynamic patient/image artifact paths and row counts may differ; the scientific artifact schema must not.",
+  "models": {
+    "HYBRID_TALON": {
+      "passed": true,
+      "missing_static_files": [],
+      "extra_static_files": [],
+      "checkpoint_names_identical": true,
+      "checkpoint_names": [
+        "best_classification.pt",
+        "best_common_validation.pt",
+        "best_dice.pt",
+        "best_dual_strong.pt",
+        "best_final_polish.pt",
+        "best_joint.pt",
+        "best_overall.pt",
+        "best_recall_safe.pt",
+        "phase_01_teacher1_anatomy_normal_best.pt",
+        "phase_02_teacher2_candidate_search_best.pt",
+        "phase_03_teacher3_doctor_ball_objectness_best.pt",
+        "phase_04_teacher4_seg_cls_coupling_best.pt",
+        "phase_05_teacher5_report_ready_polish_best.pt",
+        "resume_latest.pt"
+      ],
+      "csv_column_contracts": {
+        "training_history/training_history.csv": true,
+        "evaluation/metrics/classification_metrics_with_95ci.csv": true,
+        "evaluation/metrics/segmentation_metrics_with_95ci.csv": true,
+        "evaluation/metrics/test_slice_segmentation_metrics.csv": true,
+        "evaluation/predictions/test_case_predictions_mean_all.csv": true,
+        "evaluation/component_analysis/test_predicted_components.csv": true
+      },
+      "hybrid_teacher_five_rows": true,
+      "hybrid_teacher_columns_identical": true,
+      "hybrid_teacher_phase_directories_complete": true
+    },
+    "UNET_MTL_MASK_GUIDED": {
+      "passed": true,
+      "missing_static_files": [],
+      "extra_static_files": [],
+      "checkpoint_names_identical": true,
+      "checkpoint_names": [
+        "best_common_validation.pt",
+        "best_overall.pt",
+        "phase_01_standard_best.pt",
+        "resume_latest.pt"
+      ],
+      "csv_column_contracts": {
+        "training_history/training_history.csv": true,
+        "evaluation/metrics/classification_metrics_with_95ci.csv": true,
+        "evaluation/metrics/segmentation_metrics_with_95ci.csv": true,
+        "evaluation/metrics/test_slice_segmentation_metrics.csv": true,
+        "evaluation/predictions/test_case_predictions_mean_all.csv": true,
+        "evaluation/component_analysis/test_predicted_components.csv": true
+      },
+      "hybrid_teacher_five_rows": "not_applicable",
+      "hybrid_teacher_columns_identical": "not_applicable",
+      "hybrid_teacher_phase_directories_complete": "not_applicable"
+    }
+  }
+}

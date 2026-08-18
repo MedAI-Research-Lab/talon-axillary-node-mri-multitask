@@ -1,0 +1,7 @@
+Split,ClassName,subjects,metadata_cases,slices
+test,IBC,12,12,177
+test,IGM,9,10,88
+train,IBC,33,33,561
+train,IGM,28,28,251
+validation,IBC,12,12,200
+validation,IGM,9,9,90

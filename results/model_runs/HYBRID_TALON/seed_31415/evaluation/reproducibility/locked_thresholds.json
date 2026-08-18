@@ -1,0 +1,9 @@
+{
+  "segmentation_threshold": 0.1,
+  "classification_threshold": 0.5,
+  "poor_match_iou": 0.05,
+  "poor_match_purity": 0.05,
+  "component_threshold_source": "validation_locked_pending_radiologist_review",
+  "calibration_method": "platt",
+  "selected_on": "validation"
+}

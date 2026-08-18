@@ -1,0 +1,2 @@
+phase_index,phase,selection_key,max_epochs,patience,completed_epochs,best_epoch,best_phase_score,checkpoint
+1,standard,common,210,16,26,17,0.3523911752854731,<REPOSITORY_ROOT>/talon_outputs_jupyter/outputs/runs/UNET_MTL_MASK_GUIDED/seed_42/checkpoints/phase_01_standard_best.pt
