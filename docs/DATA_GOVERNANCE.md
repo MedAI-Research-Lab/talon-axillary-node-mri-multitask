@@ -15,6 +15,5 @@
 
 ## Mandatory check before public upload
 
-The files `paper_outputs/figures/main/figure_3_test_segmentation_cases_en.png` and `paper_outputs/figures/supplementary/supplementary_figure_S9_additional_segmentation_cases_en.png` contain deidentified clinical images. Confirm that the ethics decision, institutional policy, consent/waiver language, and target journal permit public dissemination. Remove these two files if permission is uncertain; numeric results remain inspectable without them.
-
+The files paper_outputs/figures/main/figure_3_test_segmentation_cases_en.png and paper_outputs/figures/supplementary/supplementary_figure_S9_additional_segmentation_cases_en.png contain deidentified clinical images prepared for the manuscript. Public-release review was completed before repository publication, and dissemination of these files was confirmed under the applicable institutional, ethics, consent-waiver, data-protection, and journal requirements. No direct identifiers, identity keys, or re-identification information are included.
 Case identifiers are research pseudonyms. They must never be linked to an identity key in this repository.
