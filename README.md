@@ -63,8 +63,6 @@ No raw MRI, raster masks, names, or re-identification keys are included. Two com
 
 - Included: executed architecture and analysis code, frozen five-seed result tables, thresholds, curves, component-level outputs, teacher-checkpoint summaries, XAI summaries, and publication figures.
 - Excluded: raw clinical data, underlying per-pixel arrays, model checkpoints, identity links, and unpublished manuscript DOCX files.
-- External validation, interobserver analysis, HD95, controlled ablations, and runtime/energy benchmarking were not performed and are not claimed.
+- External validation, HD95, controlled ablations, and runtime/energy benchmarking were not performed and are not claimed.
 
-## Citation and license
 
-Update `CITATION.cff` with the final authors, journal, and DOI after acceptance. The current `LICENSE` is a restrictive pre-publication research/review notice; replace it only after ownership and clinical-image permissions are resolved.
