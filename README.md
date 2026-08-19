@@ -1,6 +1,6 @@
 # TALON for IBC–IGM axillary-node analysis on breast DCE-MRI
 
-This repository contains the publication code, sanitized frozen results, and figure/table assets for a five-seed comparison of **TALON** and a **Mask-guided Multi-task U-Net** for joint axillary target-node segmentation and invasive breast cancer (IBC)-versus-idiopathic granulomatous mastitis (IGM) source-cohort classification on third-postcontrast breast DCE-MRI.
+This repository contains the publication code, sanitized frozen results, and figure/table assets for a five-seed comparison of **TALON** and a **Mask-guided Multi-task U-Net** for joint axillary target-node segmentation and invasive breast cancer (InvBC)-versus-idiopathic granulomatous mastitis (IGM) source-cohort classification on third-postcontrast breast DCE-MRI.
 
 The frozen computational dataset represents 103 subjects, 104 side-specific cases, and 1,367 axial slices.
 
