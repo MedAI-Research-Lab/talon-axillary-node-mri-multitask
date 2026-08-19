@@ -57,7 +57,7 @@ The split unit is `SubjectID`; the reporting unit is side-specific `CaseID`. Bil
 
 ## Privacy and clinical-image warning
 
-No raw MRI, raster masks, names, or re-identification keys are included. Two composite segmentation figures contain deidentified test images prepared for the manuscript. **Do not make the repository public until institutional/ethics and publisher authorization for these image panels is confirmed.** See `docs/DATA_GOVERNANCE.md`.
+No raw MRI, raster masks, names, or re-identification keys are included. Two composite segmentation figures contain deidentified test images prepared for the manuscript. See `docs/DATA_GOVERNANCE.md`.
 
 ## Reproducibility boundary
 
