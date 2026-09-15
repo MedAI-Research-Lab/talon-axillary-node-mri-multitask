@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "talon-ibc-igm-axillary-node-dce-mri"
 version = "1.0.0"
-description = "Five-seed TALON reproducibility package for axillary target-node segmentation and IBC-versus-IGM cohort classification on breast DCE-MRI"
+description = "Five-seed TALON reproducibility package for axillary target-node segmentation and InvBC-versus-IGM source-cohort classification on breast DCE-MRI"
 requires-python = ">=3.10"
 readme = "README.md"
 license = {file = "LICENSE"}
