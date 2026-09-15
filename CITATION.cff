@@ -6,4 +6,4 @@ version: 1.0.0
 date-released: 2026-08-18
 authors:
   - name: "Authors withheld pending manuscript submission"
-repository-code: "https://github.com/REPLACE_WITH_OWNER/talon-ibc-igm-axillary-node-dce-mri"
+repository-code: "https://github.com/MedAI-Research-Lab/talon-axillary-node-mri-multitask"
