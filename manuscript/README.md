@@ -1,3 +1,3 @@
 # Manuscript boundary
 
-Unpublished Word manuscripts are not included. This repository contains only supporting code, frozen results, and publication assets. Update this file with the final citation and DOI after acceptance.
+Word source documents are not included. This repository contains supporting code, frozen results, and reported assets. we will add the verified citation and DOI when available.
