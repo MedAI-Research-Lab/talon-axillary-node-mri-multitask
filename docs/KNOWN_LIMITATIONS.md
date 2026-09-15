@@ -1,9 +1,7 @@
-# Known limitations
+1. - The frozen computational cohort contains 103 patients, 104 side-specific cases, and 1,367 axial slices.
 
-- Single-center retrospective cohort; no external validation.
-- The segmented target nodes were not individually linked to nodal histopathology; therefore, the classification endpoint represents source-cohort membership rather than node-level metastatic or reactive status.
-- 2D, single-phase image formulation.
-- Interobserver agreement was not quantified.
-- No completed controlled ablation study or runtime/energy benchmark.
-- Grad-CAM findings are exploratory and should not be interpreted as causal explanations.
-- Checkpoints and private images are not distributed in this package.
+2. - Private source records used for cohort reconciliation, target-node documentation, and consent/waiver verification are outside the repository. A representative three-examination audit documented the DICOM/3D Slicer/NRRD-to-raster pathway; its scanner and geometry ranges must not be generalized to the full cohort.
+
+3. - The model uses two-dimensional raster slices of a clinically preselected target node from the contrast-series volume selected as the analysis reference in 3D Slicer; the workflow does not perform whole-examination node detection, and connected-component areas are expressed in raster-pixel space.
+
+4. - The exploratory seed-42 component-ablation results reported in the article are outside this repository; runtime/energy benchmarking was not performed.
