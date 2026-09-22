@@ -63,6 +63,6 @@ No raw MRI, raster masks, names, or re-identification keys are included. The rep
 
 - Included: executed architecture and analysis code, frozen five-seed result tables, thresholds, curves, component-level outputs, teacher-checkpoint summaries, XAI summaries, and publication figures.
 - Excluded: raw clinical data, underlying per-pixel arrays, model checkpoints, identity links, and unpublished manuscript DOCX files.
-- External validation, interobserver agreement, HD95, and runtime/energy profiling were not performed and are not claimed. The exploratory seed-42 component-ablation results reported in the article are outside this repository.
+
 
 
